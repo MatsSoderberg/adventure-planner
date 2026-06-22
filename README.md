@@ -1,18 +1,14 @@
-# Northbound v6.1
+# Northbound v8.0 – Team Ekerö Edition
 
-Real road routing sprint.
+Personalized travel app for Norway Adventure 2026.
 
-## New in v6.1
+## New in v8.0
 
-- Real driving routes using OSRM public routing
-- Route loading status
-- Fallback to scenic straight segments if routing is unavailable
-- Route distance/time estimate from routing response
-- No API key needed
-
-## Notes
-
-OSRM public demo routing is suitable for demos and lightweight use. For production or heavy traffic, replace with a dedicated routing provider.
+- Team Ekerö Expedition identity
+- Personal avatar group in the top menu
+- Team member profile panel
+- Vehicle cards: dark blue Volkswagen Multivan and carbon black BMW X3
+- More personal hero and expedition dashboard
 
 ## Netlify
 
@@ -27,3 +23,7 @@ Publish directory:
 ```bash
 dist
 ```
+
+## Sharing
+
+When Netlify deploys successfully, share the public Netlify URL with friends. Anyone with the link can open the app.

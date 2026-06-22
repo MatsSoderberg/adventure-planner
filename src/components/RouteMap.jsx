@@ -1,157 +1,242 @@
-import { useEffect, useRef, useState } from 'react'
-import L from 'leaflet'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import maplibregl from 'maplibre-gl'
+import 'maplibre-gl/dist/maplibre-gl.css'
 import { pointsOfInterest, scenicSegments } from '../data/pointsOfInterest'
 import { fetchDrivingRoute, fetchDrivingSegment } from '../services/routing'
 
+const mapStyle = {
+  version: 8,
+  sources: {
+    osm: {
+      type: 'raster',
+      tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+      tileSize: 256,
+      attribution: '© OpenStreetMap contributors'
+    }
+  },
+  layers: [
+    {
+      id: 'osm',
+      type: 'raster',
+      source: 'osm'
+    }
+  ]
+}
+
+function toLngLat(coords) {
+  const [lat, lng] = coords
+  return [lng, lat]
+}
+
+function makeLineGeoJson(coords) {
+  return {
+    type: 'Feature',
+    geometry: {
+      type: 'LineString',
+      coordinates: coords
+    },
+    properties: {}
+  }
+}
+
+function makePoiGeoJson() {
+  return {
+    type: 'FeatureCollection',
+    features: pointsOfInterest.map((poi) => ({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: toLngLat(poi.coords)
+      },
+      properties: {
+        id: poi.id,
+        name: poi.name,
+        emoji: poi.emoji,
+        typeLabel: poi.type
+      }
+    }))
+  }
+}
+
 export default function RouteMap({ stops, selectedId, onSelect, mapMode, setMapMode, selectedPoi, onSelectPoi, activeSegment }) {
   const mapRef = useRef(null)
-  const markerRef = useRef({})
-  const layersRef = useRef({ classic: null, topo: null })
+  const mapContainerRef = useRef(null)
+  const markersRef = useRef({})
   const poiMarkersRef = useRef({})
-  const segmentLayerRef = useRef(null)
-  const routeLayerRef = useRef(null)
-  const scenicLayersRef = useRef([])
   const [routeStatus, setRouteStatus] = useState('loading')
   const [routeInfo, setRouteInfo] = useState(null)
-  const routeCoords = stops.map((stop) => stop.coords)
+
+  const routeFallback = useMemo(() => stops.map((stop) => toLngLat(stop.coords)), [stops])
   const selected = stops.find((stop) => stop.id === selectedId)
 
   useEffect(() => {
-    const el = document.getElementById('map')
-    if (!el || mapRef.current) return
+    if (!mapContainerRef.current || mapRef.current) return
 
-    const map = L.map(el, { scrollWheelZoom: false, zoomControl: true }).setView([61.9, 8.6], 6)
+    const map = new maplibregl.Map({
+      container: mapContainerRef.current,
+      style: mapStyle,
+      center: [8.6, 61.9],
+      zoom: 5.5,
+      pitch: 48,
+      bearing: -12,
+      attributionControl: true
+    })
+
     mapRef.current = map
+    map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right')
 
-    layersRef.current.classic = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map)
+    map.on('load', () => {
+      map.addSource('route', {
+        type: 'geojson',
+        data: makeLineGeoJson(routeFallback)
+      })
 
-    layersRef.current.topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenTopoMap contributors'
+      map.addLayer({
+        id: 'route-line',
+        type: 'line',
+        source: 'route',
+        paint: {
+          'line-color': '#17d6b5',
+          'line-width': 5,
+          'line-opacity': 0.45,
+          'line-dasharray': [1, 1.8]
+        }
+      })
+
+      map.addSource('active-segment', {
+        type: 'geojson',
+        data: makeLineGeoJson([])
+      })
+
+      map.addLayer({
+        id: 'active-segment-line',
+        type: 'line',
+        source: 'active-segment',
+        paint: {
+          'line-color': '#ffdd70',
+          'line-width': 8,
+          'line-opacity': 0.95
+        }
+      })
+
+      stops.forEach((stop, index) => {
+        const el = document.createElement('button')
+        el.className = 'maplibre-stop-marker'
+        el.innerHTML = `<span>${stop.emoji}</span><b>${index + 1}</b>`
+        el.type = 'button'
+        el.addEventListener('click', () => onSelect(stop.id))
+
+        const marker = new maplibregl.Marker({ element: el })
+          .setLngLat(toLngLat(stop.coords))
+          .setPopup(new maplibregl.Popup({ offset: 22 }).setHTML(`<strong>${stop.name}</strong><br>${stop.headline}`))
+          .addTo(map)
+
+        markersRef.current[stop.id] = marker
+      })
+
+      pointsOfInterest.forEach((poi) => {
+        const el = document.createElement('button')
+        el.className = 'maplibre-poi-marker'
+        el.innerHTML = `<span>${poi.emoji}</span>`
+        el.type = 'button'
+        el.addEventListener('click', () => onSelectPoi?.(poi))
+
+        const marker = new maplibregl.Marker({ element: el })
+          .setLngLat(toLngLat(poi.coords))
+          .setPopup(new maplibregl.Popup({ offset: 18 }).setHTML(`<strong>${poi.name}</strong><br>${poi.type}`))
+          .addTo(map)
+
+        poiMarkersRef.current[poi.id] = marker
+      })
+
+      fetchDrivingRoute(stops)
+        .then((route) => {
+          map.getSource('route')?.setData(makeLineGeoJson(route.coords))
+          map.setPaintProperty('route-line', 'line-opacity', 0.92)
+          map.setPaintProperty('route-line', 'line-dasharray', [1, 0])
+          setRouteInfo(route)
+          setRouteStatus('ready')
+        })
+        .catch(() => {
+          setRouteStatus('fallback')
+        })
     })
 
-    routeLayerRef.current = L.polyline(routeCoords, { color: '#17d6b5', weight: 4, opacity: 0.35, dashArray: '6, 10' }).addTo(map)
-
-    scenicLayersRef.current = scenicSegments.map((segment) => (
-      L.polyline(segment.coords, { color: '#17d6b5', weight: 4, opacity: 0.35, dashArray: '6, 10' }).addTo(map)
-    ))
-
-    fetchDrivingRoute(stops)
-      .then((route) => {
-        if (routeLayerRef.current) map.removeLayer(routeLayerRef.current)
-        scenicLayersRef.current.forEach((layer) => map.removeLayer(layer))
-        routeLayerRef.current = L.polyline(route.coords, { color: '#17d6b5', weight: 6, opacity: 0.9 }).addTo(map)
-        setRouteInfo(route)
-        setRouteStatus('ready')
-        map.fitBounds(route.coords, { padding: [32, 32] })
-      })
-      .catch(() => {
-        setRouteStatus('fallback')
-      })
-
-    stops.forEach((stop, i) => {
-      const icon = L.divIcon({
-        className: 'custom-marker',
-        html: `<div><span>${stop.emoji}</span><b>${i + 1}</b></div>`,
-        iconSize: [42, 42],
-        iconAnchor: [21, 21]
-      })
-
-      const marker = L.marker(stop.coords, { icon })
-        .addTo(map)
-        .bindPopup(`<strong>${stop.name}</strong><br>${stop.headline}`)
-        .on('click', () => onSelect(stop.id))
-
-      markerRef.current[stop.id] = marker
-    })
-
-    pointsOfInterest.forEach((poi) => {
-      const icon = L.divIcon({
-        className: 'poi-marker',
-        html: `<div><span>${poi.emoji}</span></div>`,
-        iconSize: [32, 32],
-        iconAnchor: [16, 16]
-      })
-
-      const marker = L.marker(poi.coords, { icon })
-        .addTo(map)
-        .bindPopup(`<strong>${poi.name}</strong><br>${poi.type}`)
-        .on('click', () => onSelectPoi?.(poi))
-
-      poiMarkersRef.current[poi.id] = marker
-    })
-
-    map.fitBounds(routeCoords, { padding: [32, 32] })
+    return () => {
+      map.remove()
+      mapRef.current = null
+    }
   }, [])
 
   useEffect(() => {
     if (!mapRef.current || !selected) return
-    mapRef.current.flyTo(selected.coords, 8, { duration: 0.9 })
-    markerRef.current[selected.id]?.openPopup()
+    mapRef.current.flyTo({
+      center: toLngLat(selected.coords),
+      zoom: 8.2,
+      pitch: 55,
+      bearing: -10,
+      duration: 1100
+    })
+    markersRef.current[selected.id]?.togglePopup()
   }, [selectedId])
 
   useEffect(() => {
     if (!mapRef.current || !selectedPoi) return
-    mapRef.current.flyTo(selectedPoi.coords, 10, { duration: 0.9 })
-    poiMarkersRef.current[selectedPoi.id]?.openPopup()
+    mapRef.current.flyTo({
+      center: toLngLat(selectedPoi.coords),
+      zoom: 10.4,
+      pitch: 58,
+      bearing: -18,
+      duration: 1000
+    })
+    poiMarkersRef.current[selectedPoi.id]?.togglePopup()
   }, [selectedPoi?.id])
 
   useEffect(() => {
-    if (!mapRef.current || !activeSegment) return
-
-    if (segmentLayerRef.current) {
-      mapRef.current.removeLayer(segmentLayerRef.current)
-    }
+    const map = mapRef.current
+    if (!map || !activeSegment || !map.getSource('active-segment')) return
 
     setRouteStatus('segment-loading')
 
     fetchDrivingSegment(activeSegment)
       .then((segment) => {
-        segmentLayerRef.current = L.polyline(segment.coords, {
-          color: '#ffdd70',
-          weight: 8,
-          opacity: 0.96
-        }).addTo(mapRef.current)
-        mapRef.current.fitBounds(segment.coords, { padding: [70, 70] })
+        map.getSource('active-segment').setData(makeLineGeoJson(segment.coords))
         setRouteStatus('ready')
+        const bounds = new maplibregl.LngLatBounds()
+        segment.coords.forEach((coord) => bounds.extend(coord))
+        map.fitBounds(bounds, { padding: 80, duration: 1000, pitch: 55, bearing: -12 })
       })
       .catch(() => {
-        segmentLayerRef.current = L.polyline(activeSegment.coords, {
-          color: '#ffdd70',
-          weight: 8,
-          opacity: 0.96,
-          dashArray: '6, 10'
-        }).addTo(mapRef.current)
-        mapRef.current.fitBounds(activeSegment.coords, { padding: [70, 70] })
+        const coords = activeSegment.coords.map(toLngLat)
+        map.getSource('active-segment').setData(makeLineGeoJson(coords))
         setRouteStatus('fallback')
+        const bounds = new maplibregl.LngLatBounds()
+        coords.forEach((coord) => bounds.extend(coord))
+        map.fitBounds(bounds, { padding: 80, duration: 1000, pitch: 55, bearing: -12 })
       })
   }, [activeSegment?.id])
 
-  useEffect(() => {
-    if (!mapRef.current) return
-    const { classic, topo } = layersRef.current
-    if (mapMode === 'classic') {
-      if (topo) mapRef.current.removeLayer(topo)
-      if (classic && !mapRef.current.hasLayer(classic)) classic.addTo(mapRef.current)
-    } else {
-      if (classic) mapRef.current.removeLayer(classic)
-      if (topo && !mapRef.current.hasLayer(topo)) topo.addTo(mapRef.current)
-    }
-  }, [mapMode])
+  function resetView() {
+    const map = mapRef.current
+    if (!map) return
+    const bounds = new maplibregl.LngLatBounds()
+    routeFallback.forEach((coord) => bounds.extend(coord))
+    map.fitBounds(bounds, { padding: 70, duration: 1000, pitch: 48, bearing: -12 })
+  }
 
   return (
-    <div className="panel mapPanel">
+    <div className="panel mapPanel maplibrePanel">
       <div className="panelTop">
         <div>
-          <p className="kicker">Interaktiv karta</p>
-          <h2>Rutten i Norge</h2>
+          <p className="kicker">MapLibre Navigation</p>
+          <h2>Riktig vägkänsla</h2>
         </div>
         <div className="toggle">
-          <button className={mapMode === 'classic' ? 'active' : ''} onClick={() => setMapMode('classic')}>Classic</button>
-          <button className={mapMode === 'topo' ? 'active' : ''} onClick={() => setMapMode('topo')}>Topo</button>
+          <button className={mapMode === 'classic' ? 'active' : ''} onClick={() => setMapMode('classic')}>Road</button>
+          <button onClick={resetView}>Reset</button>
         </div>
       </div>
+
       <div className={`routeStatus ${routeStatus}`}>
         <span>
           {routeStatus === 'loading' && 'Hämtar riktiga bilvägar...'}
@@ -160,8 +245,13 @@ export default function RouteMap({ stops, selectedId, onSelect, mapMode, setMapM
           {routeStatus === 'fallback' && 'Fallback: visar förenklad rutt'}
         </span>
       </div>
-      <div id="map" />
+
+      <div ref={mapContainerRef} id="map" className="maplibreMap" />
+
+      <div className="mapNote">
+        <span>v7.0</span>
+        <p>MapLibre GL ger mjukare flygningar, lutad kamera och en tydligare premiumkänsla. Ruttdata hämtas via OSRM utan API-nyckel.</p>
+      </div>
     </div>
   )
 }
-

@@ -1,9 +1,11 @@
+import TeamAvatarStrip from './TeamAvatarStrip'
 export default function Hero({ adventureScore }) {
   return (
     <section className="hero">
       <div className="heroBg" />
       <nav>
         <div className="logo">North<span>bound</span></div>
+        <TeamAvatarStrip compact />
         <div className="navlinks">
           <a href="#route">Karta</a>
           <a href="#timeline">Timeline</a>
@@ -13,10 +15,10 @@ export default function Hero({ adventureScore }) {
       </nav>
 
       <div className="heroContent">
-        <p className="kicker">Norway Adventure 2026</p>
-        <h1>Northbound</h1>
-        <div className="heroLine">Drive less. Experience more.</div>
-        <p className="lead">En cinematic roadbook för fjäll, fjord, båt, el-MTB, Trollstigen och väderstyrda beslut på vägen.</p>
+        <p className="kicker">Team Ekerö · Norway 2026</p>
+        <h1>Team Ekerö</h1>
+        <div className="heroLine">The Ekerö Expedition</div>
+        <p className="lead">En personlig roadbook för fjäll, fjord, båt, el-MTB, Trollstigen och hela gängets bästa Norgeäventyr.</p>
         <div className="actions">
           <a className="button primary" href="#route">Start journey</a>
           <a className="button" href="https://www.google.com/maps/dir/Idre,+Sweden/R%C3%B8ros,+Norway/Lom,+Norway/Stryn,+Norway/Loen,+Norway/Geiranger,+Norway/%C3%85ndalsnes,+Norway/Idre,+Sweden" target="_blank" rel="noreferrer">Google Maps</a>

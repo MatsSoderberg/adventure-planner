@@ -11,6 +11,7 @@ import DestinationPanel from './components/DestinationPanel'
 import ActivityExplorer from './components/ActivityExplorer'
 import DayCards from './components/DayCards'
 import PackList from './components/PackList'
+import TeamEkeroPanel from './components/TeamEkeroPanel'
 import ExperiencePanel from './components/ExperiencePanel'
 import PremiumMapGuide from './components/PremiumMapGuide'
 import CinematicIntro from './components/CinematicIntro'
@@ -51,6 +52,7 @@ export default function App() {
       <CinematicIntro adventureScore={adventureScore} />
       <JourneySummary adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />
+      <TeamEkeroPanel />
       <AIGuide planB={planB} selected={selected} status={selectedStatus} weather={selectedToday} />
       <ConciergePanel selected={selected} status={selectedStatus} />
 

@@ -15,9 +15,11 @@ export async function fetchDrivingRoute(stops) {
   if (!route?.geometry?.coordinates) throw new Error('No route geometry found')
 
   return {
-    coords: route.geometry.coordinates.map(([lng, lat]) => [lat, lng]),
+    coords: route.geometry.coordinates,
+    latLngCoords: route.geometry.coordinates.map(([lng, lat]) => [lat, lng]),
     distanceKm: Math.round(route.distance / 1000),
-    durationHours: Math.round((route.duration / 3600) * 10) / 10
+    durationHours: Math.round((route.duration / 3600) * 10) / 10,
+    geojson: route.geometry
   }
 }
 
@@ -34,8 +36,10 @@ export async function fetchDrivingSegment(stage) {
 
   return {
     id: stage.id,
-    coords: route.geometry.coordinates.map(([lng, lat]) => [lat, lng]),
+    coords: route.geometry.coordinates,
+    latLngCoords: route.geometry.coordinates.map(([lng, lat]) => [lat, lng]),
     distanceKm: Math.round(route.distance / 1000),
-    durationHours: Math.round((route.duration / 3600) * 10) / 10
+    durationHours: Math.round((route.duration / 3600) * 10) / 10,
+    geojson: route.geometry
   }
 }

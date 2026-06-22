@@ -1,16 +1,15 @@
-# Northbound v5.0
+# Northbound v6.0
 
-Premium cinematic roadtrip experience for Norway Adventure 2026.
+Premium UX sprint for Norway Adventure 2026.
 
-## New in v5.0
+## New in v6.0
 
-- Cinematic Northbound identity
-- Hero upgraded to premium travel-app feel
-- AI Concierge 2.0
-- Photo Mode per destination
-- Elevation profile concept per stage
-- Premium route cards
-- Stronger visual hierarchy before future MapLibre/3D work
+- Story Mode
+- Journey chapters
+- Stronger premium UX
+- Better motion and transitions
+- More polished destination narrative
+- Refined visual hierarchy without adding fragile dependencies
 
 ## Netlify
 

@@ -17,6 +17,8 @@ import CinematicIntro from './components/CinematicIntro'
 import ConciergePanel from './components/ConciergePanel'
 import PhotoMode from './components/PhotoMode'
 import ElevationProfile from './components/ElevationProfile'
+import StoryMode from './components/StoryMode'
+import JourneySummary from './components/JourneySummary'
 
 export default function App() {
   const [selectedId, setSelectedId] = useState('geiranger')
@@ -47,9 +49,12 @@ export default function App() {
     <main>
       <Hero adventureScore={adventureScore} />
       <CinematicIntro adventureScore={adventureScore} />
+      <JourneySummary adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />
       <AIGuide planB={planB} selected={selected} status={selectedStatus} weather={selectedToday} />
       <ConciergePanel selected={selected} status={selectedStatus} />
+
+      <StoryMode selectedId={selectedId} onSelect={setSelectedId} />
 
       <Timeline stops={stops} selectedId={selectedId} onSelect={setSelectedId} />
 

@@ -1,13 +1,13 @@
 import { teamMembers } from '../data/teamEkero'
 
-const stats = [
+const metrics = [
   ['1453 km', 'Total sträcka'],
   ['7 dagar', 'Roadbook'],
-  ['27', 'Sevärdheter'],
+  ['18 stopp', 'Planerade stopp'],
   ['94', 'Adventure index']
 ]
 
-const stages = [
+const chapters = [
   ['01', 'Idre → Røros', 'Mjuk start mot Norge'],
   ['02', 'Jotunheimen', 'Fjäll, väderbeslut och vyer'],
   ['03', 'Lom → Loen', 'Sognefjellet och fjordland'],
@@ -15,102 +15,89 @@ const stages = [
   ['05', 'Trollstigen', 'Ikonisk final']
 ]
 
-function ExpeditionCar({ type }) {
-  return (
-    <div className={`xCar ${type}`}>
-      <div className="xCarRoof" />
-      <div className="xCarWindow" />
-      <div className="xCarLight left" />
-      <div className="xCarLight right" />
-      <div className="xWheel front" />
-      <div className="xWheel rear" />
-    </div>
-  )
-}
-
 export default function NorthboundX() {
   return (
-    <section className="northboundX">
-      <div className="xHero">
-        <div className="xHeroBg" />
+    <section className="nx nxMockup">
+      <div className="nxHeroMockup">
+        <img className="nxHeroArt" src="/hero/team-ekero-hero.png" alt="Team Ekerö Norway Expedition" />
 
-        <div className="xTopGlass">
-          <div className="xBrand">
-            <div className="xEmblem"><span>△</span></div>
-            <div><strong>NORTHBOUND X</strong><small>Team Ekerö · Norway 2026</small></div>
+        <header className="nxFloatingNav">
+          <div className="nxLogo">
+            <div className="nxMark"><span>N</span></div>
+            <div>
+              <strong>Northbound X</strong>
+              <small>Team Ekerö · Norway 2026</small>
+            </div>
           </div>
-          <div className="xMiniCrew">
-            {teamMembers.map(member => <img key={member.id} src={member.avatar} alt={member.name} />)}
+
+          <div className="nxCrew">
+            {teamMembers.map(member => (
+              <img key={member.id} src={member.avatar} alt={member.name} />
+            ))}
             <b>{teamMembers.length}</b>
           </div>
-        </div>
+        </header>
 
-        <div className="xHeroCopy">
-          <span className="xScript">Välkommen</span>
+        <div className="nxHeroOverlayCopy">
+          <span>Expedition Norway</span>
           <h1>Team Ekerö</h1>
-          <p>En personlig expedition genom fjäll, fjordar och ikoniska vägar.</p>
-          <button>▶ Starta expedition</button>
+          <p>En personlig roadtrip-app för fjäll, fjordar, väderbeslut och ikoniska vägar.</p>
+          <div className="nxActions">
+            <button>▶ Starta expedition</button>
+            <a href="#route">Visa karta</a>
+          </div>
         </div>
 
-        <div className="xVehicleStage">
-          <div className="xRoad" />
-          <ExpeditionCar type="multivan" />
-          <ExpeditionCar type="x3" />
-        </div>
-
-        <div className="xStats">
-          {stats.map(([value, label]) => (
-            <div key={label}><strong>{value}</strong><span>{label}</span></div>
+        <div className="nxMetrics nxMockMetrics">
+          {metrics.map(([value, label]) => (
+            <div key={label}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
           ))}
         </div>
       </div>
 
-      <div className="xMissionGrid">
-        <div className="xPanel xWide">
-          <span className="xKicker">Mission Control</span>
+      <section className="nxDashboard">
+        <article className="nxCard nxMission">
+          <span className="nxKicker">Mission Control</span>
           <h2>Dagens smarta val</h2>
-          <p>Håll fjälldagarna flexibla. Om Geiranger har bäst väder: prioritera fjordbåt, Flydalsjuvet och middag med utsikt.</p>
-          <div className="xSignal">
-            <div><strong>18°</strong><span>Loen idag</span></div>
-            <div><strong>4h 15m</strong><span>Körning</span></div>
-            <div><strong>82%</strong><span>Fuel/range</span></div>
+          <p>Om Geiranger har bäst väder: prioritera fjordbåt, Flydalsjuvet och middag med utsikt. Flytta fjällvandring vid låg sikt eller hård vind.</p>
+          <div className="nxSignals">
+            <div><strong>18°</strong><span>best window</span></div>
+            <div><strong>4h 15m</strong><span>drive today</span></div>
+            <div><strong>82%</strong><span>range/fuel</span></div>
           </div>
-        </div>
+        </article>
 
-        <div className="xPanel">
-          <span className="xKicker">Team</span>
-          <div className="xTeamList">
-            {teamMembers.slice(0, 7).map(member => (
+        <article className="nxCard">
+          <span className="nxKicker">Crew</span>
+          <div className="nxCrewGrid">
+            {teamMembers.map(member => (
               <div key={member.id}>
                 <img src={member.avatar} alt={member.name} />
-                <span>{member.name}</span>
+                <strong>{member.name}</strong>
                 <small>{member.role}</small>
               </div>
             ))}
           </div>
-        </div>
+        </article>
 
-        <div className="xPanel">
-          <span className="xKicker">Route chapters</span>
-          <div className="xStageList">
-            {stages.map(([num, title, text]) => (
+        <article className="nxCard">
+          <span className="nxKicker">Route Chapters</span>
+          <div className="nxChapters">
+            {chapters.map(([num, title, text]) => (
               <div key={num}>
                 <b>{num}</b>
-                <span>{title}</span>
-                <small>{text}</small>
+                <div>
+                  <strong>{title}</strong>
+                  <small>{text}</small>
+                </div>
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="xPanel xVehicles">
-          <span className="xKicker">Expedition vehicles</span>
-          <div className="xVehicleRows">
-            <div><ExpeditionCar type="multivan small" /><span>Mörkblå Multivan</span><small>Comfort Cruiser</small></div>
-            <div><ExpeditionCar type="x3 small" /><span>Carbonsvart BMW X3</span><small>Mountain Scout</small></div>
-          </div>
-        </div>
-      </div>
+        </article>
+      </section>
     </section>
   )
 }

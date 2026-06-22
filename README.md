@@ -1,14 +1,13 @@
-# Northbound X v10 – Premium Edition
+# Northbound X v12 – Mockup Hero
 
-Design-reset för Team Ekerö Norway Expedition 2026.
+This version uses the approved cinematic mockup as the hero art so the app finally matches the intended visual direction.
 
-## Nytt
-- Mobil först
-- Ny premium-startsida
-- Stiliserade bilar som passar grafiken
-- Expeditionsemblem
-- Renare mission-dashboard
-- Mindre plottrigt UI
+## New in v12
+- Cinematic mockup hero integrated as real app background
+- Overlay UI remains real React/CSS
+- Mobile-first cropping and layout
+- Old CSS vehicle illustrations hidden
+- Cleaner transition into the existing app sections
 
 ## Netlify
 Build command: `npm run build`  

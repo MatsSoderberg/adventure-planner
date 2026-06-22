@@ -3398,3 +3398,888 @@ main > .hero { display: none; }
   .xVehicles .xVehicleRows div { grid-template-columns: 1fr; }
   .xCar.small { width: 150px; }
 }
+
+
+/* Northbound X v11 Design System */
+:root {
+  --nx-bg: #03070b;
+  --nx-panel: rgba(9, 21, 30, .72);
+  --nx-line: rgba(255,255,255,.11);
+  --nx-text: #f4fbf7;
+  --nx-muted: rgba(244,251,247,.62);
+  --nx-green: #75d189;
+  --nx-gold: #ffd77a;
+  --nx-blue: #0d3552;
+  --nx-radius-lg: 32px;
+  --nx-radius-md: 22px;
+  --nx-shadow: 0 30px 100px rgba(0,0,0,.34);
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(117,209,137,.14), transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(255,215,122,.1), transparent 34%),
+    linear-gradient(180deg, #03070b 0%, #071116 54%, #03070b 100%);
+  color: var(--nx-text);
+}
+
+main > .hero,
+.realCarsSection,
+.teamEkeroSection {
+  display: none !important;
+}
+
+.nx {
+  width: 100%;
+  overflow: hidden;
+}
+
+.nxHero {
+  position: relative;
+  min-height: 100svh;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.nxBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background:
+    linear-gradient(90deg, rgba(3,7,11,.98) 0%, rgba(3,7,11,.68) 40%, rgba(3,7,11,.18) 78%),
+    linear-gradient(to top, rgba(3,7,11,1) 0%, transparent 58%),
+    url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2600&q=88') center/cover;
+  transform: scale(1.06);
+  animation: nxPan 24s ease-in-out infinite alternate;
+}
+
+@keyframes nxPan {
+  from { transform: scale(1.06) translate3d(-10px, -2px, 0); }
+  to { transform: scale(1.12) translate3d(14px, 4px, 0); }
+}
+
+.nxHero::before {
+  content: "";
+  position: absolute;
+  left: -6%;
+  right: -6%;
+  bottom: 112px;
+  height: 260px;
+  z-index: -1;
+  background: linear-gradient(172deg, transparent 0 39%, rgba(28,31,28,.78) 40% 72%, rgba(3,7,11,.98) 73% 100%);
+}
+
+.nxNav {
+  position: absolute;
+  z-index: 8;
+  top: 18px;
+  left: clamp(12px, 3vw, 36px);
+  right: clamp(12px, 3vw, 36px);
+  min-height: 76px;
+  padding: 10px 14px;
+  border: 1px solid var(--nx-line);
+  border-radius: 26px;
+  background: rgba(3,7,11,.58);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 70px rgba(0,0,0,.26);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.nxLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nxMark {
+  width: 50px;
+  height: 50px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 15%, rgba(255,255,255,.22), transparent 36%),
+    linear-gradient(135deg, rgba(117,209,137,.35), rgba(255,215,122,.12));
+  border: 1px solid rgba(255,255,255,.16);
+}
+
+.nxMark span {
+  font-weight: 950;
+  color: var(--nx-text);
+}
+
+.nxLogo strong,
+.nxLogo small {
+  display: block;
+}
+
+.nxLogo strong {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .9rem;
+}
+
+.nxLogo small {
+  color: var(--nx-muted);
+}
+
+.nxCrew {
+  display: flex;
+  align-items: center;
+  max-width: 52%;
+  padding: 6px 10px 6px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(117,209,137,.45);
+  overflow: hidden;
+}
+
+.nxCrew img {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,.9);
+  margin-left: -8px;
+}
+
+.nxCrew img:first-child {
+  margin-left: 0;
+}
+
+.nxCrew b {
+  min-width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--nx-green);
+  color: #041009;
+  border: 2px solid rgba(255,255,255,.9);
+  margin-left: -7px;
+}
+
+.nxHeroText {
+  position: relative;
+  z-index: 4;
+  width: min(760px, calc(100% - 32px));
+  margin: clamp(132px, 18vh, 185px) 0 0 clamp(16px, 6vw, 88px);
+}
+
+.nxHeroText > span {
+  display: block;
+  color: var(--nx-green);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .78rem;
+  font-weight: 950;
+  margin-bottom: 14px;
+}
+
+.nxHeroText h1 {
+  font-size: clamp(4.5rem, 12vw, 10rem);
+  line-height: .8;
+  letter-spacing: -.09em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.nxHeroText p {
+  margin: 24px 0 24px;
+  max-width: 500px;
+  font-size: clamp(1.05rem, 2vw, 1.32rem);
+  color: rgba(244,251,247,.76);
+}
+
+.nxActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nxActions button,
+.nxActions a {
+  min-height: 54px;
+  padding: 0 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.12);
+  font-weight: 950;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nxActions button {
+  background: linear-gradient(135deg, var(--nx-green), #44a464);
+  color: #041009;
+  border: 0;
+  box-shadow: 0 22px 60px rgba(117,209,137,.23);
+}
+
+.nxActions a {
+  background: rgba(255,255,255,.07);
+  color: var(--nx-text);
+}
+
+.nxCars {
+  position: absolute;
+  z-index: 3;
+  left: 39%;
+  right: 5%;
+  bottom: 146px;
+  height: 305px;
+  pointer-events: none;
+}
+
+.nxRoad {
+  position: absolute;
+  left: -8%;
+  right: -4%;
+  bottom: 20px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.58);
+  filter: blur(20px);
+  transform: skewX(-10deg);
+}
+
+.nxCar {
+  position: absolute;
+  bottom: 34px;
+  width: 410px;
+  height: 134px;
+  border-radius: 44px 66px 24px 24px;
+  background:
+    linear-gradient(140deg, rgba(255,255,255,.12), transparent 34%),
+    linear-gradient(135deg, #0e3858, #04070b 72%);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 36px 56px rgba(0,0,0,.55);
+}
+
+.nxCar.multivan {
+  left: 0;
+  z-index: 2;
+}
+
+.nxCar.x3 {
+  right: 0;
+  bottom: 24px;
+  width: 350px;
+  height: 116px;
+  border-radius: 60px 78px 24px 24px;
+  background:
+    linear-gradient(140deg, rgba(255,255,255,.12), transparent 34%),
+    linear-gradient(135deg, #1b1e24, #030407 70%);
+  z-index: 3;
+}
+
+.nxCarCabin {
+  position: absolute;
+  left: 18%;
+  top: -18px;
+  width: 54%;
+  height: 54px;
+  border-radius: 34px 44px 10px 10px;
+  background: inherit;
+}
+
+.nxCarGlass {
+  position: absolute;
+  left: 18%;
+  top: 18px;
+  width: 55%;
+  height: 36px;
+  border-radius: 16px 24px 8px 8px;
+  background: linear-gradient(135deg, rgba(210,235,255,.58), rgba(255,255,255,.08));
+  opacity: .82;
+}
+
+.nxCarLine {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 70px;
+  height: 1px;
+  background: rgba(255,255,255,.14);
+}
+
+.nxWheel {
+  position: absolute;
+  bottom: -18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #030407;
+  border: 8px solid #30363a;
+  box-shadow: inset 0 0 0 4px #090d10;
+}
+
+.nxWheel.front { right: 14%; }
+.nxWheel.rear { left: 15%; }
+
+.nxCar.small {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: 155px;
+  height: 54px;
+  transform: scale(.9);
+  transform-origin: left center;
+}
+
+.nxCar.small .nxCarCabin { top: -8px; height: 22px; }
+.nxCar.small .nxCarGlass { top: 9px; height: 14px; }
+.nxCar.small .nxCarLine { top: 30px; }
+.nxCar.small .nxWheel { width: 20px; height: 20px; border-width: 4px; bottom: -8px; }
+
+.nxMetrics {
+  position: absolute;
+  z-index: 5;
+  left: clamp(12px, 3vw, 36px);
+  right: clamp(12px, 3vw, 36px);
+  bottom: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  padding: 12px;
+  border-radius: 26px;
+  background: rgba(3,7,11,.64);
+  border: 1px solid var(--nx-line);
+  backdrop-filter: blur(20px);
+}
+
+.nxMetrics div {
+  padding: 14px;
+}
+
+.nxMetrics strong,
+.nxMetrics span {
+  display: block;
+}
+
+.nxMetrics strong {
+  font-size: 1.18rem;
+}
+
+.nxMetrics span {
+  color: var(--nx-muted);
+  font-size: .86rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.nxDashboard {
+  width: min(1320px, calc(100% - 28px));
+  margin: 30px auto 72px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 16px;
+}
+
+.nxCard {
+  border-radius: var(--nx-radius-lg);
+  padding: 24px;
+  border: 1px solid var(--nx-line);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(117,209,137,.12), transparent 36%),
+    linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.035));
+  backdrop-filter: blur(18px);
+  box-shadow: var(--nx-shadow);
+}
+
+.nxMission {
+  grid-column: span 2;
+}
+
+.nxKicker {
+  display: block;
+  color: var(--nx-green);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: .72rem;
+  font-weight: 950;
+  margin-bottom: 12px;
+}
+
+.nxCard h2 {
+  font-size: clamp(2.2rem, 5vw, 4.1rem);
+  letter-spacing: -.07em;
+}
+
+.nxSignals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  overflow: hidden;
+  border-radius: 22px;
+  margin-top: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.nxSignals div {
+  padding: 17px;
+  background: rgba(255,255,255,.045);
+}
+
+.nxSignals strong,
+.nxSignals span {
+  display: block;
+}
+
+.nxSignals strong {
+  font-size: 1.45rem;
+}
+
+.nxSignals span {
+  color: var(--nx-muted);
+}
+
+.nxCrewGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.nxCrewGrid div,
+.nxChapters div,
+.nxVehicleRow {
+  padding: 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.045);
+}
+
+.nxCrewGrid img {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,.82);
+  margin-bottom: 10px;
+}
+
+.nxCrewGrid strong,
+.nxCrewGrid small,
+.nxChapters strong,
+.nxChapters small,
+.nxVehicleRow strong,
+.nxVehicleRow small {
+  display: block;
+}
+
+.nxCrewGrid small,
+.nxChapters small,
+.nxVehicleRow small {
+  color: var(--nx-muted);
+}
+
+.nxChapters {
+  display: grid;
+  gap: 10px;
+}
+
+.nxChapters div {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.nxChapters b {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--nx-green);
+  color: #041009;
+}
+
+.nxVehicleCard {
+  grid-column: span 2;
+}
+
+.nxVehicleRow {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+@media (max-width: 980px) {
+  .nxCars {
+    left: 28%;
+    right: 3%;
+  }
+
+  .nxDashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .nxMission,
+  .nxVehicleCard {
+    grid-column: auto;
+  }
+
+  .nxCrewGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .nxHero {
+    min-height: 100svh;
+  }
+
+  .nxNav {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    border-radius: 22px;
+  }
+
+  .nxLogo small {
+    display: none;
+  }
+
+  .nxCrew {
+    max-width: 48%;
+  }
+
+  .nxCrew img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nxHeroText {
+    width: calc(100% - 28px);
+    margin: 118px 14px 0;
+  }
+
+  .nxHeroText h1 {
+    font-size: clamp(3.8rem, 18vw, 5.4rem);
+  }
+
+  .nxCars {
+    left: 4%;
+    right: 4%;
+    bottom: 146px;
+    height: 250px;
+  }
+
+  .nxCar.multivan {
+    width: 268px;
+    height: 92px;
+    left: 0;
+    bottom: 50px;
+  }
+
+  .nxCar.x3 {
+    width: 228px;
+    height: 78px;
+    right: 0;
+    bottom: 36px;
+  }
+
+  .nxCarCabin {
+    top: -12px;
+    height: 36px;
+  }
+
+  .nxCarGlass {
+    top: 12px;
+    height: 24px;
+  }
+
+  .nxWheel {
+    width: 30px;
+    height: 30px;
+    border-width: 6px;
+    bottom: -13px;
+  }
+
+  .nxMetrics {
+    grid-template-columns: repeat(2, 1fr);
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 22px;
+  }
+
+  .nxMetrics div {
+    padding: 10px;
+  }
+
+  .nxDashboard {
+    width: min(100% - 20px, 560px);
+    gap: 12px;
+  }
+
+  .nxCard {
+    border-radius: 24px;
+    padding: 20px;
+  }
+
+  .nxSignals {
+    grid-template-columns: 1fr;
+  }
+
+  .nxCrewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nxVehicleRow {
+    grid-template-columns: 1fr;
+  }
+
+  .nxCar.small {
+    width: 148px;
+  }
+}
+
+@media (max-width: 390px) {
+  .nxHeroText h1 {
+    font-size: 3.65rem;
+  }
+
+  .nxCar.multivan {
+    width: 235px;
+  }
+
+  .nxCar.x3 {
+    width: 205px;
+  }
+}
+
+
+/* Northbound X v12 - approved mockup hero implementation */
+main > .hero,
+.realCarsSection,
+.teamEkeroSection,
+.xHero,
+.nxHero {
+  display: none !important;
+}
+
+.nxMockup {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(117,209,137,.14), transparent 32%),
+    linear-gradient(180deg, #03070b 0%, #071116 58%, #03070b 100%);
+}
+
+.nxHeroMockup {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #03070b;
+}
+
+.nxHeroArt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.96) contrast(1.03) brightness(.92);
+  transform: scale(1.01);
+}
+
+.nxHeroMockup::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3,7,11,.34), rgba(3,7,11,.02) 52%, rgba(3,7,11,.18)),
+    linear-gradient(to top, rgba(3,7,11,.85), transparent 42%);
+  z-index: 1;
+}
+
+.nxFloatingNav {
+  position: absolute;
+  z-index: 5;
+  top: 18px;
+  left: clamp(12px, 3vw, 36px);
+  right: clamp(12px, 3vw, 36px);
+  min-height: 72px;
+  padding: 10px 14px;
+  border-radius: 26px;
+  background: rgba(3,7,11,.36);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 70px rgba(0,0,0,.24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nxHeroOverlayCopy {
+  position: absolute;
+  z-index: 4;
+  left: clamp(18px, 5vw, 78px);
+  bottom: clamp(138px, 19vh, 210px);
+  width: min(620px, calc(100% - 36px));
+}
+
+.nxHeroOverlayCopy > span {
+  display: block;
+  color: var(--nx-green, #75d189);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .78rem;
+  font-weight: 950;
+  margin-bottom: 14px;
+}
+
+.nxHeroOverlayCopy h1 {
+  margin: 0;
+  font-size: clamp(4.2rem, 10vw, 8rem);
+  line-height: .8;
+  letter-spacing: -.09em;
+  text-transform: uppercase;
+  text-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+
+.nxHeroOverlayCopy p {
+  margin: 22px 0 24px;
+  max-width: 500px;
+  color: rgba(244,251,247,.78);
+  font-size: clamp(1.05rem, 2vw, 1.26rem);
+}
+
+.nxMockMetrics {
+  position: absolute;
+  z-index: 5;
+  left: clamp(12px, 3vw, 36px);
+  right: clamp(12px, 3vw, 36px);
+  bottom: 24px;
+}
+
+.nxMockMetrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  padding: 12px;
+  border-radius: 26px;
+  background: rgba(3,7,11,.62);
+  border: 1px solid rgba(255,255,255,.13);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0,0,0,.28);
+}
+
+.nxMockMetrics div {
+  padding: 14px;
+}
+
+.nxMockMetrics strong,
+.nxMockMetrics span {
+  display: block;
+}
+
+.nxMockMetrics strong {
+  font-size: 1.18rem;
+}
+
+.nxMockMetrics span {
+  color: rgba(244,251,247,.62);
+  font-size: .86rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.nxDashboard {
+  position: relative;
+  z-index: 3;
+  margin-top: 28px !important;
+}
+
+@media (max-width: 900px) {
+  .nxHeroArt {
+    object-position: center;
+  }
+
+  .nxHeroOverlayCopy {
+    bottom: 150px;
+  }
+
+  .nxHeroOverlayCopy h1 {
+    font-size: clamp(3.6rem, 15vw, 5.6rem);
+  }
+
+  .nxFloatingNav {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    border-radius: 22px;
+  }
+
+  .nxLogo small {
+    display: none;
+  }
+
+  .nxCrew {
+    max-width: 48%;
+  }
+
+  .nxCrew img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nxMockMetrics {
+    grid-template-columns: repeat(2, 1fr);
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 22px;
+  }
+
+  .nxMockMetrics div {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .nxHeroArt {
+    object-position: center;
+    filter: saturate(.94) contrast(1.02) brightness(.82);
+  }
+
+  .nxHeroMockup {
+    min-height: 100svh;
+  }
+
+  .nxHeroOverlayCopy {
+    left: 14px;
+    right: 14px;
+    bottom: 170px;
+  }
+
+  .nxHeroOverlayCopy h1 {
+    font-size: clamp(3.1rem, 17vw, 4.4rem);
+  }
+
+  .nxHeroOverlayCopy p {
+    max-width: 320px;
+  }
+
+  .nxActions {
+    gap: 8px;
+  }
+
+  .nxActions button,
+  .nxActions a {
+    min-height: 48px;
+    padding: 0 14px;
+    border-radius: 14px;
+  }
+}

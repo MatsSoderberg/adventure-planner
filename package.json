@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-team-ekero",
-  "version": "10.0.0",
+  "name": "northbound-x-mockup-hero",
+  "version": "12.0.0",
   "private": true,
   "type": "module",
   "scripts": {

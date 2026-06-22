@@ -1,11 +1,17 @@
-# Adventure Planner v2.2
+# Northbound / Adventure Planner v3.0
 
-New in v2.2:
-- Roadtrip Timeline
-- 7-day weather forecast per stop
-- Adventure Score
-- Activity mode filters
-- Better destination cards
+A premium interactive roadtrip planner. First journey: Norway Adventure 2026.
+
+## New in v3.0
+
+- Modular React structure
+- `components/`, `data/`, `services/`, `utils/`
+- Northbound identity
+- AI Guide panel
+- Roadtrip score
+- Timeline
+- Interactive Leaflet map
+- 7-day weather forecast with Open-Meteo
 
 ## Netlify
 
@@ -20,3 +26,5 @@ Publish directory:
 ```bash
 dist
 ```
+
+Node version is locked to 20 through `.nvmrc` and `netlify.toml`.

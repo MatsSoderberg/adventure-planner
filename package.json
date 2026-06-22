@@ -1,6 +1,6 @@
 {
-  "name": "adventure-planner",
-  "version": "2.2.0",
+  "name": "northbound-adventure-planner",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "scripts": {

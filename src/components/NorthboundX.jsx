@@ -2,9 +2,9 @@ import { teamMembers } from '../data/teamEkero'
 
 const metrics = [
   ['1453 km', 'Total sträcka'],
-  ['7 dagar', 'Roadbook'],
+  ['7 dagar', 'Resans längd'],
   ['18 stopp', 'Planerade stopp'],
-  ['94', 'Adventure index']
+  ['94', 'Adventure Index']
 ]
 
 const chapters = [
@@ -17,11 +17,11 @@ const chapters = [
 
 export default function NorthboundX() {
   return (
-    <section className="nx nxMockup">
-      <div className="nxHeroMockup">
-        <img className="nxHeroArt" src="/hero/team-ekero-hero.png" alt="Team Ekerö Norway Expedition" />
+    <section className="nx nxCleanMockup">
+      <div className="nxHeroClean">
+        <img className="nxHeroArtClean" src="/hero/team-ekero-hero-clean.png" alt="Team Ekerö Norway Expedition" />
 
-        <header className="nxFloatingNav">
+        <header className="nxFloatingNav clean">
           <div className="nxLogo">
             <div className="nxMark"><span>N</span></div>
             <div>
@@ -38,17 +38,12 @@ export default function NorthboundX() {
           </div>
         </header>
 
-        <div className="nxHeroOverlayCopy">
-          <span>Expedition Norway</span>
-          <h1>Team Ekerö</h1>
-          <p>En personlig roadtrip-app för fjäll, fjordar, väderbeslut och ikoniska vägar.</p>
-          <div className="nxActions">
-            <button>▶ Starta expedition</button>
-            <a href="#route">Visa karta</a>
-          </div>
+        <div className="nxCleanActions">
+          <button>▶ Starta expedition</button>
+          <a href="#route">Visa karta</a>
         </div>
 
-        <div className="nxMetrics nxMockMetrics">
+        <div className="nxCleanMetrics">
           {metrics.map(([value, label]) => (
             <div key={label}>
               <strong>{value}</strong>

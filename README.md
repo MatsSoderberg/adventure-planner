@@ -1,13 +1,13 @@
-# Northbound X v12 – Mockup Hero
+# Northbound X v13 – Clean Mockup Hero
 
-This version uses the approved cinematic mockup as the hero art so the app finally matches the intended visual direction.
+This version follows the latest approved mockup more closely.
 
-## New in v12
-- Cinematic mockup hero integrated as real app background
-- Overlay UI remains real React/CSS
-- Mobile-first cropping and layout
-- Old CSS vehicle illustrations hidden
-- Cleaner transition into the existing app sections
+## New in v13
+- Uses the latest hero mockup image
+- Removes duplicate large overlay text
+- Keeps only real UI: top nav, CTA and metrics panel
+- Metrics panel is lowered so it does not cover the cars
+- Better desktop and mobile cropping
 
 ## Netlify
 Build command: `npm run build`  

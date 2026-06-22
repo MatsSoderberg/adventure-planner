@@ -4283,3 +4283,226 @@ main > .hero,
     border-radius: 14px;
   }
 }
+
+
+/* Northbound X v13 - clean mockup implementation */
+main > .hero,
+.realCarsSection,
+.teamEkeroSection,
+.xHero,
+.nxHero,
+.nxHeroMockup {
+  display: none !important;
+}
+
+.nxCleanMockup {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(117,209,137,.12), transparent 32%),
+    linear-gradient(180deg, #03070b 0%, #071116 58%, #03070b 100%);
+}
+
+.nxHeroClean {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #03070b;
+}
+
+.nxHeroArtClean {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.98) contrast(1.03) brightness(.96);
+}
+
+.nxHeroClean::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(3,7,11,.88) 0%, transparent 31%),
+    linear-gradient(90deg, rgba(3,7,11,.18), transparent 45%, rgba(3,7,11,.08));
+}
+
+.nxFloatingNav.clean {
+  position: absolute;
+  z-index: 5;
+  top: 18px;
+  left: clamp(12px, 3vw, 36px);
+  right: clamp(12px, 3vw, 36px);
+  min-height: 72px;
+  padding: 10px 14px;
+  border-radius: 26px;
+  background: rgba(3,7,11,.42);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 70px rgba(0,0,0,.24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nxCleanActions {
+  position: absolute;
+  z-index: 4;
+  left: clamp(30px, 5vw, 72px);
+  bottom: clamp(158px, 18vh, 220px);
+  display: flex;
+  gap: 12px;
+}
+
+.nxCleanActions button,
+.nxCleanActions a {
+  min-height: 56px;
+  padding: 0 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.13);
+  font-weight: 950;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 22px 60px rgba(0,0,0,.24);
+}
+
+.nxCleanActions button {
+  background: linear-gradient(135deg, #75d189, #45a768);
+  color: #031008;
+  border: 0;
+}
+
+.nxCleanActions a {
+  background: rgba(3,7,11,.42);
+  color: #f4fbf7;
+}
+
+.nxCleanMetrics {
+  position: absolute;
+  z-index: 5;
+  left: clamp(18px, 4vw, 70px);
+  right: clamp(18px, 4vw, 70px);
+  bottom: 28px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  padding: 12px;
+  border-radius: 26px;
+  background: rgba(3,7,11,.7);
+  border: 1px solid rgba(255,255,255,.13);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 70px rgba(0,0,0,.3);
+}
+
+.nxCleanMetrics div {
+  padding: 16px 22px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.nxCleanMetrics strong,
+.nxCleanMetrics span {
+  display: block;
+}
+
+.nxCleanMetrics strong {
+  font-size: 1.28rem;
+  white-space: nowrap;
+}
+
+.nxCleanMetrics span {
+  color: rgba(244,251,247,.68);
+  font-size: .9rem;
+}
+
+.nxDashboard {
+  position: relative;
+  z-index: 3;
+  margin-top: 30px !important;
+}
+
+@media (max-width: 900px) {
+  .nxHeroArtClean {
+    object-position: center;
+  }
+
+  .nxFloatingNav.clean {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    border-radius: 22px;
+  }
+
+  .nxLogo small {
+    display: none;
+  }
+
+  .nxCrew {
+    max-width: 48%;
+  }
+
+  .nxCrew img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nxCleanActions {
+    left: 18px;
+    bottom: 158px;
+  }
+
+  .nxCleanMetrics {
+    grid-template-columns: repeat(2, 1fr);
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 22px;
+  }
+
+  .nxCleanMetrics div {
+    padding: 11px 12px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .nxHeroClean {
+    min-height: 100svh;
+  }
+
+  .nxHeroArtClean {
+    object-position: 55% center;
+    filter: saturate(.96) contrast(1.02) brightness(.88);
+  }
+
+  .nxCleanActions {
+    left: 12px;
+    right: 12px;
+    bottom: 170px;
+    gap: 8px;
+  }
+
+  .nxCleanActions button,
+  .nxCleanActions a {
+    min-height: 48px;
+    padding: 0 13px;
+    border-radius: 14px;
+    flex: 1;
+  }
+
+  .nxCleanMetrics strong {
+    font-size: 1.05rem;
+  }
+
+  .nxCleanMetrics span {
+    font-size: .74rem;
+  }
+}

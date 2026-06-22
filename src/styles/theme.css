@@ -2860,3 +2860,304 @@ body {
     max-width: 280px;
   }
 }
+
+
+/* v9.3 Transparent car cutouts - no photo rectangles */
+.cinematicOverview {
+  width: min(1480px, calc(100% - 28px));
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, .56fr);
+  grid-template-areas:
+    "hero team"
+    "plan team"
+    "vehicles vehicles";
+}
+
+.cinematicHeroDashboard {
+  grid-area: hero;
+  position: relative;
+  min-height: 640px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 34px 120px rgba(0,0,0,.36);
+  background: #071114;
+}
+
+.cinematicHeroScene {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5,11,16,.96) 0%, rgba(5,11,16,.62) 34%, rgba(5,11,16,.18) 74%),
+    linear-gradient(to top, rgba(5,11,16,.98), transparent 50%),
+    url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2400&q=82') center/cover;
+  transform: scale(1.04);
+}
+
+.cinematicHeroDashboard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 94px;
+  height: 185px;
+  background:
+    linear-gradient(174deg, transparent 0 42%, rgba(30,30,28,.82) 43% 73%, rgba(5,11,16,.98) 74% 100%);
+  opacity: .92;
+  z-index: 1;
+}
+
+.cinematicHeroText {
+  position: relative;
+  z-index: 4;
+  padding: clamp(28px, 5vw, 56px);
+  max-width: 560px;
+}
+
+.cinematicHeroText h2 {
+  font-size: clamp(4rem, 9vw, 8rem);
+  letter-spacing: -.08em;
+  margin: 0;
+  line-height: .84;
+  text-transform: uppercase;
+}
+
+.cinematicHeroText > strong {
+  display: block;
+  margin: 24px 0 10px;
+  font-size: 1.05rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.cinematicHeroText p {
+  max-width: 390px;
+  font-size: 1.04rem;
+}
+
+.cinematicHeroText button {
+  margin-top: 12px;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #74cd80, #3f8d59);
+  color: #05100b;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 18px 45px rgba(116,205,128,.2);
+}
+
+.parkedCarsStage {
+  position: absolute;
+  z-index: 3;
+  left: 34%;
+  right: 3%;
+  bottom: 112px;
+  height: 290px;
+  pointer-events: none;
+}
+
+.roadShadow {
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: 18px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.64);
+  filter: blur(22px);
+  transform: skewX(-10deg);
+}
+
+.heroCar {
+  position: absolute;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  opacity: .96;
+  filter:
+    contrast(1.12)
+    saturate(.78)
+    brightness(.56)
+    drop-shadow(0 30px 34px rgba(0,0,0,.58));
+}
+
+.multivanHero {
+  width: min(61%, 610px);
+  left: -1%;
+  bottom: 18px;
+  z-index: 2;
+}
+
+.x3Hero {
+  width: min(51%, 500px);
+  right: 0;
+  bottom: 6px;
+  z-index: 3;
+  filter:
+    contrast(1.16)
+    saturate(.76)
+    brightness(.48)
+    drop-shadow(0 30px 34px rgba(0,0,0,.62));
+}
+
+.heroStatsBar {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 26px;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  padding: 12px;
+  border-radius: 20px;
+  background: rgba(5,11,16,.64);
+  border: 1px solid rgba(255,255,255,.11);
+  backdrop-filter: blur(16px);
+}
+
+.heroStatsBar div {
+  padding: 10px 12px;
+}
+
+.heroStatsBar strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.heroStatsBar span {
+  color: rgba(247,251,255,.6);
+  font-size: .82rem;
+}
+
+.premiumSideTeam { grid-area: team; }
+
+.expeditionVehiclesPanel {
+  grid-area: vehicles;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  align-items: center;
+}
+
+.cinematicPanel {
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(8,20,29,.74);
+  box-shadow: 0 28px 90px rgba(0,0,0,.32);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+
+.cinematicVehicle {
+  position: relative;
+  min-height: 150px;
+  grid-template-columns: minmax(170px, 260px) 1fr !important;
+  overflow: hidden;
+}
+
+.cinematicVehicle img {
+  position: relative;
+  z-index: 1;
+  width: 100% !important;
+  height: 122px !important;
+  object-fit: contain !important;
+  filter:
+    brightness(.58)
+    contrast(1.12)
+    saturate(.82)
+    drop-shadow(0 20px 28px rgba(0,0,0,.48)) !important;
+}
+
+.cinematicVehicle > div {
+  position: relative;
+  z-index: 2;
+}
+
+.realCarsGlass,
+.overviewVehicleGlass,
+.vehicleIllustration {
+  display: none !important;
+}
+
+.premiumVehicle.real img,
+.premiumVehicle > img {
+  background: transparent !important;
+}
+
+@media (max-width: 1160px) {
+  .cinematicOverview {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "team"
+      "plan"
+      "vehicles";
+  }
+
+  .parkedCarsStage {
+    left: 28%;
+  }
+
+  .expeditionVehiclesPanel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .cinematicOverview {
+    width: min(100% - 20px, 560px);
+  }
+
+  .cinematicHeroDashboard {
+    min-height: 650px;
+    border-radius: 20px;
+  }
+
+  .cinematicHeroText {
+    padding: 26px 22px;
+  }
+
+  .cinematicHeroText h2 {
+    font-size: clamp(3rem, 16vw, 4.4rem);
+  }
+
+  .parkedCarsStage {
+    left: 6%;
+    right: 6%;
+    bottom: 126px;
+    height: 245px;
+  }
+
+  .multivanHero {
+    width: 67%;
+    left: -6%;
+    bottom: 30px;
+  }
+
+  .x3Hero {
+    width: 59%;
+    right: -5%;
+    bottom: 18px;
+  }
+
+  .heroStatsBar {
+    grid-template-columns: repeat(2, 1fr);
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 8px;
+  }
+
+  .heroStatsBar div {
+    padding: 8px;
+  }
+
+  .cinematicVehicle {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cinematicVehicle img {
+    height: 118px !important;
+    max-width: 300px;
+  }
+}

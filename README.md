@@ -1,16 +1,14 @@
-# Northbound v9.2 – Cinematic Cars
+# Northbound v9.3 – Transparent Cars
 
-This version makes the cars feel integrated into the app background instead of appearing as separate image cards.
+Fixes the rectangular vehicle photo issue.
 
-## New in v9.2
+## New
 
-- Cinematic hero with cars parked in the fjord scene
-- Real Multivan and BMW X3 images integrated with shadows and gradients
-- Reworked Premium Overview closer to the mockup
-- Vehicle card styling now uses scenic background instead of plain image boxes
-- Mobile-first car staging
+- Locally generated transparent car PNGs
+- No rectangular car photo backgrounds
+- Cars are staged into the fjord/road hero scene
+- Added shadows, darker grading and mobile layout
 
-## Netlify
-
-Build command: `npm run build`  
-Publish directory: `dist`
+Netlify:
+- Build command: `npm run build`
+- Publish directory: `dist`

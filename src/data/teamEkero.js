@@ -16,7 +16,7 @@ export const vehicles = [
     role: 'Comfort Cruiser',
     plate: 'TEAM VAN',
     accent: '#0e3a5c',
-    image: '/cars/multivan.webp',
+    image: '/cars/multivan-cutout.png',
     crew: ['mats', 'asa', 'anna', 'johan']
   },
   {
@@ -26,7 +26,7 @@ export const vehicles = [
     role: 'Mountain Scout',
     plate: 'BMW X3',
     accent: '#111418',
-    image: '/cars/bmw-x3.jpg',
+    image: '/cars/bmw-x3-cutout.png',
     crew: ['wilmer', 'ludwig', 'malte']
   }
 ]

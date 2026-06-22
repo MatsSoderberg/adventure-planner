@@ -8,13 +8,6 @@ const plan = [
   ['5', 'Loen → Geiranger', '128 km · 2h 25m', '☁️ 17°']
 ]
 
-const topActivities = [
-  ['Loen Skylift', '★★★★★'],
-  ['Trollstigen', '★★★★★'],
-  ['Geirangerfjord', '★★★★★'],
-  ['Jotunheimen Hike', '★★★★☆']
-]
-
 export default function PremiumOverview() {
   const multivan = vehicles.find(v => v.id === 'multivan')
   const x3 = vehicles.find(v => v.id === 'x3')
@@ -33,6 +26,7 @@ export default function PremiumOverview() {
         </div>
 
         <div className="parkedCarsStage" aria-label="Expedition vehicles">
+          <div className="roadShadow" />
           <img className="heroCar multivanHero" src={multivan.image} alt={multivan.name} />
           <img className="heroCar x3Hero" src={x3.image} alt={x3.name} />
         </div>
@@ -65,28 +59,6 @@ export default function PremiumOverview() {
             <b>{num}</b>
             <div><strong>{title}</strong><span>{meta}</span></div>
             <small>{weather}</small>
-          </div>
-        ))}
-      </div>
-
-      <div className="overviewMapPreview cinematicPanel">
-        <div className="premiumCardHeader"><span>🗺️</span><h3>Resrutt</h3></div>
-        <div className="miniRouteMap">
-          <i className="routeLine" />
-          <span className="mapPoint p1">Idre</span>
-          <span className="mapPoint p2">Røros</span>
-          <span className="mapPoint p3">Lom</span>
-          <span className="mapPoint p4">Loen</span>
-          <span className="mapPoint p5">Geiranger</span>
-        </div>
-      </div>
-
-      <div className="overviewActivitiesCard cinematicPanel">
-        <div className="premiumCardHeader"><span>🏔️</span><h3>Topp aktiviteter</h3></div>
-        {topActivities.map(([name, stars]) => (
-          <div className="activityRow" key={name}>
-            <div className="activityThumb" />
-            <div><strong>{name}</strong><span>{stars}</span></div>
           </div>
         ))}
       </div>

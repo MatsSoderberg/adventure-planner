@@ -11,6 +11,7 @@ import DestinationPanel from './components/DestinationPanel'
 import ActivityExplorer from './components/ActivityExplorer'
 import DayCards from './components/DayCards'
 import PackList from './components/PackList'
+import NorthboundX from './components/NorthboundX'
 import TeamEkeroPanel from './components/TeamEkeroPanel'
 import PremiumOverview from './components/PremiumOverview'
 import LiveDashboard from './components/LiveDashboard'
@@ -53,9 +54,8 @@ export default function App() {
   return (
     <main>
       <Hero adventureScore={adventureScore} />
-      <PremiumOverview />
+      <NorthboundX />
       <LiveDashboard />
-      <RealCarsShowcase />
       <CinematicIntro adventureScore={adventureScore} />
       <JourneySummary adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />

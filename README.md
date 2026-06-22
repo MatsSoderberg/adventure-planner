@@ -1,14 +1,15 @@
-# Northbound v9.3 – Transparent Cars
+# Northbound X v10 – Premium Edition
 
-Fixes the rectangular vehicle photo issue.
+Design-reset för Team Ekerö Norway Expedition 2026.
 
-## New
+## Nytt
+- Mobil först
+- Ny premium-startsida
+- Stiliserade bilar som passar grafiken
+- Expeditionsemblem
+- Renare mission-dashboard
+- Mindre plottrigt UI
 
-- Locally generated transparent car PNGs
-- No rectangular car photo backgrounds
-- Cars are staged into the fjord/road hero scene
-- Added shadows, darker grading and mobile layout
-
-Netlify:
-- Build command: `npm run build`
-- Publish directory: `dist`
+## Netlify
+Build command: `npm run build`  
+Publish directory: `dist`

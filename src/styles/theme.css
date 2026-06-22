@@ -1169,3 +1169,38 @@ h3 { font-size: 1.18rem; letter-spacing: -.03em; margin-bottom: 10px; }
     margin-bottom: 26px;
   }
 }
+
+
+/* v6.1 Real road routing */
+.routeStatus {
+  margin: 12px 0 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255,255,255,.07);
+  color: rgba(247,251,255,.72);
+  font-size: .84rem;
+  font-weight: 850;
+}
+
+.routeStatus.ready {
+  border-color: rgba(23,214,181,.32);
+  background: rgba(23,214,181,.09);
+  color: #9ffbe9;
+}
+
+.routeStatus.loading,
+.routeStatus.segment-loading {
+  border-color: rgba(255,221,112,.28);
+  background: rgba(255,221,112,.08);
+  color: #ffedac;
+}
+
+.routeStatus.fallback {
+  border-color: rgba(245,158,11,.28);
+  background: rgba(245,158,11,.08);
+  color: #fcd34d;
+}

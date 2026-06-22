@@ -1,15 +1,18 @@
-# Northbound v6.0
+# Northbound v6.1
 
-Premium UX sprint for Norway Adventure 2026.
+Real road routing sprint.
 
-## New in v6.0
+## New in v6.1
 
-- Story Mode
-- Journey chapters
-- Stronger premium UX
-- Better motion and transitions
-- More polished destination narrative
-- Refined visual hierarchy without adding fragile dependencies
+- Real driving routes using OSRM public routing
+- Route loading status
+- Fallback to scenic straight segments if routing is unavailable
+- Route distance/time estimate from routing response
+- No API key needed
+
+## Notes
+
+OSRM public demo routing is suitable for demos and lightweight use. For production or heavy traffic, replace with a dedicated routing provider.
 
 ## Netlify
 

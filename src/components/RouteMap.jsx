@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import L from 'leaflet'
 import { pointsOfInterest, scenicSegments } from '../data/pointsOfInterest'
+import { fetchDrivingRoute, fetchDrivingSegment } from '../services/routing'
 
 export default function RouteMap({ stops, selectedId, onSelect, mapMode, setMapMode, selectedPoi, onSelectPoi, activeSegment }) {
   const mapRef = useRef(null)
@@ -8,6 +9,10 @@ export default function RouteMap({ stops, selectedId, onSelect, mapMode, setMapM
   const layersRef = useRef({ classic: null, topo: null })
   const poiMarkersRef = useRef({})
   const segmentLayerRef = useRef(null)
+  const routeLayerRef = useRef(null)
+  const scenicLayersRef = useRef([])
+  const [routeStatus, setRouteStatus] = useState('loading')
+  const [routeInfo, setRouteInfo] = useState(null)
   const routeCoords = stops.map((stop) => stop.coords)
   const selected = stops.find((stop) => stop.id === selectedId)
 
@@ -26,11 +31,24 @@ export default function RouteMap({ stops, selectedId, onSelect, mapMode, setMapM
       attribution: '&copy; OpenTopoMap contributors'
     })
 
-    L.polyline(routeCoords, { color: '#17d6b5', weight: 4, opacity: 0.45, dashArray: '6, 10' }).addTo(map)
+    routeLayerRef.current = L.polyline(routeCoords, { color: '#17d6b5', weight: 4, opacity: 0.35, dashArray: '6, 10' }).addTo(map)
 
-    scenicSegments.forEach((segment) => {
-      L.polyline(segment.coords, { color: '#17d6b5', weight: 5, opacity: 0.78 }).addTo(map)
-    })
+    scenicLayersRef.current = scenicSegments.map((segment) => (
+      L.polyline(segment.coords, { color: '#17d6b5', weight: 4, opacity: 0.35, dashArray: '6, 10' }).addTo(map)
+    ))
+
+    fetchDrivingRoute(stops)
+      .then((route) => {
+        if (routeLayerRef.current) map.removeLayer(routeLayerRef.current)
+        scenicLayersRef.current.forEach((layer) => map.removeLayer(layer))
+        routeLayerRef.current = L.polyline(route.coords, { color: '#17d6b5', weight: 6, opacity: 0.9 }).addTo(map)
+        setRouteInfo(route)
+        setRouteStatus('ready')
+        map.fitBounds(route.coords, { padding: [32, 32] })
+      })
+      .catch(() => {
+        setRouteStatus('fallback')
+      })
 
     stops.forEach((stop, i) => {
       const icon = L.divIcon({
@@ -86,13 +104,28 @@ export default function RouteMap({ stops, selectedId, onSelect, mapMode, setMapM
       mapRef.current.removeLayer(segmentLayerRef.current)
     }
 
-    segmentLayerRef.current = L.polyline(activeSegment.coords, {
-      color: '#ffdd70',
-      weight: 8,
-      opacity: 0.95
-    }).addTo(mapRef.current)
+    setRouteStatus('segment-loading')
 
-    mapRef.current.fitBounds(activeSegment.coords, { padding: [70, 70] })
+    fetchDrivingSegment(activeSegment)
+      .then((segment) => {
+        segmentLayerRef.current = L.polyline(segment.coords, {
+          color: '#ffdd70',
+          weight: 8,
+          opacity: 0.96
+        }).addTo(mapRef.current)
+        mapRef.current.fitBounds(segment.coords, { padding: [70, 70] })
+        setRouteStatus('ready')
+      })
+      .catch(() => {
+        segmentLayerRef.current = L.polyline(activeSegment.coords, {
+          color: '#ffdd70',
+          weight: 8,
+          opacity: 0.96,
+          dashArray: '6, 10'
+        }).addTo(mapRef.current)
+        mapRef.current.fitBounds(activeSegment.coords, { padding: [70, 70] })
+        setRouteStatus('fallback')
+      })
   }, [activeSegment?.id])
 
   useEffect(() => {
@@ -118,6 +151,14 @@ export default function RouteMap({ stops, selectedId, onSelect, mapMode, setMapM
           <button className={mapMode === 'classic' ? 'active' : ''} onClick={() => setMapMode('classic')}>Classic</button>
           <button className={mapMode === 'topo' ? 'active' : ''} onClick={() => setMapMode('topo')}>Topo</button>
         </div>
+      </div>
+      <div className={`routeStatus ${routeStatus}`}>
+        <span>
+          {routeStatus === 'loading' && 'Hämtar riktiga bilvägar...'}
+          {routeStatus === 'segment-loading' && 'Hämtar vald etapp...'}
+          {routeStatus === 'ready' && `Riktig bilrutt aktiv${routeInfo ? ` · ca ${routeInfo.distanceKm} km · ${routeInfo.durationHours} h` : ''}`}
+          {routeStatus === 'fallback' && 'Fallback: visar förenklad rutt'}
+        </span>
       </div>
       <div id="map" />
     </div>

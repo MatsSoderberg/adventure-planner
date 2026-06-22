@@ -1,15 +1,16 @@
-# Northbound / Adventure Planner v4.0
+# Northbound v5.0
 
-Premium map sprint.
+Premium cinematic roadtrip experience for Norway Adventure 2026.
 
-## New in v4.0
+## New in v5.0
 
-- Scenic route segments
-- Fly-to-stage controls
-- Iconic POI markers along the route
-- POI detail cards
-- Better map experience without new external routing dependencies
-- Keeps Netlify simple and stable
+- Cinematic Northbound identity
+- Hero upgraded to premium travel-app feel
+- AI Concierge 2.0
+- Photo Mode per destination
+- Elevation profile concept per stage
+- Premium route cards
+- Stronger visual hierarchy before future MapLibre/3D work
 
 ## Netlify
 

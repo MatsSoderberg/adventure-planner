@@ -727,3 +727,237 @@ h3 { font-size: 1.18rem; letter-spacing: -.03em; margin-bottom: 10px; }
     align-items: flex-start;
   }
 }
+
+
+/* v5.0 Cinematic / Concierge / Photo / Elevation */
+.heroLine {
+  display: inline-flex;
+  margin: -8px 0 22px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(247,251,255,.78);
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
+.cinematic {
+  position: relative;
+  width: min(1180px, calc(100% - 32px));
+  margin: -42px auto 0;
+  min-height: 460px;
+  border-radius: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 36px 120px rgba(0,0,0,.36);
+}
+
+.cinematicBackdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(7,17,20,.9), rgba(7,17,20,.25)),
+    linear-gradient(to top, rgba(7,17,20,.96), transparent 55%),
+    url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=80') center/cover;
+  transform: scale(1.08);
+  animation: slowDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes slowDrift {
+  from { transform: scale(1.08) translate3d(-8px, -4px, 0); }
+  to { transform: scale(1.14) translate3d(10px, 6px, 0); }
+}
+
+.cinematicInner {
+  position: relative;
+  z-index: 1;
+  padding: clamp(28px, 6vw, 70px);
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.cinematicInner > span {
+  color: #ffdd70;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .75rem;
+  font-weight: 950;
+}
+
+.cinematicInner h2 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  margin: 8px 0 8px;
+}
+
+.cinematicInner p {
+  font-size: 1.1rem;
+  max-width: 640px;
+}
+
+.cinematicStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.cinematicStats div {
+  min-width: 150px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(7,17,20,.58);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(14px);
+}
+
+.cinematicStats strong {
+  display: block;
+  font-size: 1.55rem;
+}
+
+.cinematicStats small {
+  color: rgba(247,251,255,.58);
+}
+
+.conciergeSection {
+  padding-top: 0;
+}
+
+.conciergePanel {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 34px;
+  border: 1px solid rgba(255,221,112,.2);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255,221,112,.14), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.035));
+  box-shadow: 0 30px 100px rgba(0,0,0,.28);
+}
+
+.conciergeSignal {
+  padding: 22px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.conciergeSignal.good { border-color: rgba(34,197,94,.28); }
+.conciergeSignal.warn { border-color: rgba(245,158,11,.28); }
+.conciergeSignal.bad { border-color: rgba(239,68,68,.28); }
+
+.conciergeSignal span {
+  display: block;
+  color: rgba(247,251,255,.6);
+  margin-bottom: 8px;
+}
+
+.conciergeSignal strong {
+  display: block;
+  font-size: 2.4rem;
+  letter-spacing: -.06em;
+}
+
+.conciergeSignal small {
+  color: rgba(247,251,255,.65);
+  line-height: 1.5;
+}
+
+.photoMode {
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+  gap: 18px;
+  padding-top: 12px;
+}
+
+.photoCard {
+  display: grid;
+  grid-template-columns: .8fr .8fr 1.4fr;
+  gap: 12px;
+  padding: 22px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.1);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(23,214,181,.16), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
+  box-shadow: 0 24px 80px rgba(0,0,0,.24);
+}
+
+.photoCard span {
+  display: block;
+  color: rgba(247,251,255,.58);
+  font-size: .8rem;
+  margin-bottom: 6px;
+}
+
+.photoCard strong {
+  display: block;
+  color: #ffdd70;
+}
+
+.photoCard p {
+  margin-bottom: 0;
+}
+
+.elevationSection {
+  padding-top: 20px;
+}
+
+.elevationGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.elevationCard {
+  padding: 20px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.035));
+}
+
+.elevationCard strong {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.elevationCard svg {
+  width: 100%;
+  height: 78px;
+  display: block;
+  margin: 10px 0;
+}
+
+.elevationCard polyline {
+  fill: none;
+  stroke: #17d6b5;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 8px 12px rgba(23,214,181,.24));
+}
+
+.elevationCard div {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(247,251,255,.58);
+  font-size: .82rem;
+}
+
+@media (max-width: 920px) {
+  .conciergePanel,
+  .photoMode,
+  .photoCard,
+  .elevationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cinematic {
+    margin-top: 18px;
+  }
+}

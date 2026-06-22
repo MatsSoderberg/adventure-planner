@@ -13,6 +13,10 @@ import DayCards from './components/DayCards'
 import PackList from './components/PackList'
 import ExperiencePanel from './components/ExperiencePanel'
 import PremiumMapGuide from './components/PremiumMapGuide'
+import CinematicIntro from './components/CinematicIntro'
+import ConciergePanel from './components/ConciergePanel'
+import PhotoMode from './components/PhotoMode'
+import ElevationProfile from './components/ElevationProfile'
 
 export default function App() {
   const [selectedId, setSelectedId] = useState('geiranger')
@@ -42,8 +46,10 @@ export default function App() {
   return (
     <main>
       <Hero adventureScore={adventureScore} />
+      <CinematicIntro adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />
       <AIGuide planB={planB} selected={selected} status={selectedStatus} weather={selectedToday} />
+      <ConciergePanel selected={selected} status={selectedStatus} />
 
       <Timeline stops={stops} selectedId={selectedId} onSelect={setSelectedId} />
 
@@ -73,7 +79,11 @@ export default function App() {
         onFlySegment={setActiveSegment}
       />
 
+      <ElevationProfile />
+
       <ExperiencePanel selected={selected} />
+
+      <PhotoMode selected={selected} />
 
       <ActivityExplorer
         modes={modes}

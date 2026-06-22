@@ -11,6 +11,7 @@ import DestinationPanel from './components/DestinationPanel'
 import ActivityExplorer from './components/ActivityExplorer'
 import DayCards from './components/DayCards'
 import PackList from './components/PackList'
+import ExperiencePanel from './components/ExperiencePanel'
 
 export default function App() {
   const [selectedId, setSelectedId] = useState('geiranger')
@@ -59,6 +60,8 @@ export default function App() {
           status={selectedStatus}
         />
       </section>
+
+      <ExperiencePanel selected={selected} />
 
       <ActivityExplorer
         modes={modes}

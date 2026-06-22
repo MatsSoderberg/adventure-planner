@@ -1,17 +1,15 @@
-# Northbound / Adventure Planner v3.0
+# Northbound / Adventure Planner v3.1
 
 A premium interactive roadtrip planner. First journey: Norway Adventure 2026.
 
-## New in v3.0
+## New in v3.1
 
-- Modular React structure
-- `components/`, `data/`, `services/`, `utils/`
-- Northbound identity
-- AI Guide panel
-- Roadtrip score
-- Timeline
-- Interactive Leaflet map
-- 7-day weather forecast with Open-Meteo
+- Destination experience panel
+- Missa inte per stopp
+- Aktiviteter per destination
+- Mat/fika-tips per destination
+- Snabbknappar till Google Maps/search
+- Mer praktisk reseinformation utan att tappa premiumkänslan
 
 ## Netlify
 

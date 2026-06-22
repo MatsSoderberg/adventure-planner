@@ -478,3 +478,94 @@ h3 { font-size: 1.18rem; letter-spacing: -.03em; margin-bottom: 10px; }
   .panelTop, .sectionHead { flex-direction: column; }
   .miniGrid, .checks, .weatherLine, .forecast { grid-template-columns: 1fr; }
 }
+
+
+/* v3.1 Destination Experience */
+.experienceSection {
+  padding-top: 20px;
+}
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.experienceCard {
+  min-height: 230px;
+  padding: 22px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .22);
+}
+
+.experienceCard.premium {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(23,214,181,.22), transparent 44%),
+    linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
+}
+
+.experienceCard.plan {
+  border-color: rgba(23,214,181,.22);
+  background: rgba(23,214,181,.075);
+}
+
+.experienceCard span {
+  display: block;
+  font-weight: 950;
+  margin-bottom: 14px;
+  color: #17d6b5;
+}
+
+.experienceCard ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.experienceCard li {
+  margin-bottom: 10px;
+  color: rgba(247,251,255,.76);
+  line-height: 1.4;
+}
+
+.experienceCard p {
+  margin-bottom: 0;
+}
+
+.quickLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.quickLinks a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(247,251,255,.82);
+  font-weight: 850;
+}
+
+.quickLinks a:hover {
+  border-color: rgba(23,214,181,.48);
+  background: rgba(23,214,181,.09);
+}
+
+@media (max-width: 1020px) {
+  .experienceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .experienceGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -2359,3 +2359,504 @@ body {
     justify-self: start;
   }
 }
+
+
+/* v9.2 Cinematic Cars - integrated into scene */
+.cinematicOverview {
+  width: min(1480px, calc(100% - 28px));
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, .56fr);
+  grid-template-areas:
+    "hero team"
+    "plan team"
+    "map activities"
+    "vehicles vehicles";
+}
+
+.cinematicHeroDashboard {
+  grid-area: hero;
+  position: relative;
+  min-height: 610px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 34px 120px rgba(0,0,0,.36);
+  background: #071114;
+}
+
+.cinematicHeroScene {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5,11,16,.96) 0%, rgba(5,11,16,.62) 34%, rgba(5,11,16,.16) 70%),
+    linear-gradient(to top, rgba(5,11,16,.98), transparent 48%),
+    url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2400&q=82') center/cover;
+  transform: scale(1.04);
+}
+
+.cinematicHeroDashboard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 92px;
+  height: 170px;
+  background:
+    linear-gradient(175deg, transparent 0 44%, rgba(24,24,22,.78) 45% 72%, rgba(5,11,16,.96) 73% 100%);
+  opacity: .82;
+  z-index: 1;
+}
+
+.cinematicHeroText {
+  position: relative;
+  z-index: 3;
+  padding: clamp(28px, 5vw, 56px);
+  max-width: 560px;
+}
+
+.cinematicHeroText h2 {
+  font-size: clamp(4rem, 9vw, 8rem);
+  letter-spacing: -.08em;
+  margin: 0;
+  line-height: .84;
+  text-transform: uppercase;
+}
+
+.cinematicHeroText > strong {
+  display: block;
+  margin: 24px 0 10px;
+  font-size: 1.05rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.cinematicHeroText p {
+  max-width: 380px;
+  font-size: 1.04rem;
+}
+
+.cinematicHeroText button {
+  margin-top: 12px;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #74cd80, #3f8d59);
+  color: #05100b;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 18px 45px rgba(116,205,128,.2);
+}
+
+.parkedCarsStage {
+  position: absolute;
+  z-index: 2;
+  left: 38%;
+  right: 4%;
+  bottom: 112px;
+  height: 270px;
+  pointer-events: none;
+}
+
+.parkedCarsStage::after {
+  content: '';
+  position: absolute;
+  left: 5%;
+  right: 2%;
+  bottom: 10px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.55);
+  filter: blur(18px);
+  transform: skewX(-9deg);
+}
+
+.heroCar {
+  position: absolute;
+  object-fit: contain;
+  filter:
+    contrast(1.08)
+    saturate(.9)
+    brightness(.72)
+    drop-shadow(0 28px 35px rgba(0,0,0,.52));
+}
+
+.multivanHero {
+  width: min(58%, 560px);
+  left: 0;
+  bottom: 16px;
+  z-index: 2;
+}
+
+.x3Hero {
+  width: min(49%, 470px);
+  right: 1%;
+  bottom: 4px;
+  z-index: 3;
+  filter:
+    contrast(1.12)
+    saturate(.88)
+    brightness(.64)
+    drop-shadow(0 28px 35px rgba(0,0,0,.54));
+}
+
+.heroStatsBar {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 26px;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  padding: 12px;
+  border-radius: 20px;
+  background: rgba(5,11,16,.62);
+  border: 1px solid rgba(255,255,255,.11);
+  backdrop-filter: blur(16px);
+}
+
+.heroStatsBar div {
+  padding: 10px 12px;
+}
+
+.heroStatsBar strong {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.heroStatsBar span {
+  color: rgba(247,251,255,.6);
+  font-size: .82rem;
+}
+
+.premiumSideTeam {
+  grid-area: team;
+}
+
+.cinematicPanel {
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(8,20,29,.74);
+  box-shadow: 0 28px 90px rgba(0,0,0,.32);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+}
+
+.overviewMapPreview {
+  grid-area: map;
+  min-height: 280px;
+}
+
+.miniRouteMap {
+  position: relative;
+  height: 220px;
+  margin: 0 18px 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    linear-gradient(to top, rgba(5,11,16,.82), rgba(5,11,16,.2)),
+    url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=70') center/cover;
+}
+
+.routeLine {
+  position: absolute;
+  left: 18%;
+  top: 70%;
+  width: 64%;
+  height: 4px;
+  border-radius: 999px;
+  background: #74cd80;
+  transform: rotate(-30deg);
+  box-shadow: 0 0 18px rgba(116,205,128,.5);
+}
+
+.mapPoint {
+  position: absolute;
+  display: inline-flex;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(5,11,16,.72);
+  border: 1px solid rgba(255,255,255,.15);
+  font-size: .78rem;
+  font-weight: 850;
+}
+
+.p1 { left: 12%; bottom: 16%; }
+.p2 { right: 18%; bottom: 42%; }
+.p3 { right: 34%; top: 44%; }
+.p4 { left: 44%; top: 24%; }
+.p5 { left: 24%; top: 16%; }
+
+.expeditionVehiclesPanel {
+  grid-area: vehicles;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  align-items: center;
+}
+
+.expeditionVehiclesPanel .premiumCardHeader {
+  align-self: stretch;
+}
+
+.cinematicVehicle {
+  position: relative;
+  min-height: 170px;
+  grid-template-columns: minmax(180px, 280px) 1fr !important;
+  overflow: hidden;
+}
+
+.cinematicVehicle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5,11,16,.2), rgba(5,11,16,.76)),
+    radial-gradient(circle at 20% 70%, rgba(116,205,128,.13), transparent 34%);
+  pointer-events: none;
+}
+
+.cinematicVehicle img {
+  position: relative;
+  z-index: 1;
+  width: 100% !important;
+  height: 130px !important;
+  object-fit: contain !important;
+  filter:
+    brightness(.72)
+    contrast(1.08)
+    saturate(.9)
+    drop-shadow(0 20px 28px rgba(0,0,0,.42)) !important;
+}
+
+.cinematicVehicle > div {
+  position: relative;
+  z-index: 2;
+}
+
+.scenicGarage {
+  position: relative;
+  min-height: 520px;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 34px 120px rgba(0,0,0,.36);
+  background: #071114;
+  margin-top: 24px;
+}
+
+.garageBg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(5,11,16,.96), transparent 58%),
+    linear-gradient(90deg, rgba(5,11,16,.75), rgba(5,11,16,.18)),
+    url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=82') center/cover;
+}
+
+.scenicGarage::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 105px;
+  height: 150px;
+  background: linear-gradient(174deg, transparent 0 45%, rgba(25,25,23,.84) 46% 78%, rgba(5,11,16,.96) 79% 100%);
+  z-index: 1;
+}
+
+.garageCar {
+  position: absolute;
+  z-index: 2;
+  width: 46%;
+  min-height: 280px;
+  bottom: 70px;
+  border: 0;
+  background: transparent;
+}
+
+.garageCar.multivan {
+  left: 7%;
+}
+
+.garageCar.x3 {
+  right: 8%;
+}
+
+.garageCar > img {
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
+  filter:
+    brightness(.72)
+    contrast(1.08)
+    saturate(.92)
+    drop-shadow(0 26px 34px rgba(0,0,0,.5));
+}
+
+.garageCar::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 178px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.52);
+  filter: blur(16px);
+  z-index: -1;
+}
+
+.garageInfo {
+  margin-top: -4px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(5,11,16,.58);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(14px);
+}
+
+.garageInfo > span {
+  display: block;
+  color: #74cd80;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: .72rem;
+  font-weight: 950;
+}
+
+.garageInfo strong {
+  display: block;
+  font-size: 1.35rem;
+  margin: 4px 0;
+}
+
+.garageInfo small {
+  display: block;
+  color: #ffdd70;
+  margin-bottom: 10px;
+}
+
+.garageInfo .carCrew img {
+  width: 34px;
+  height: 34px;
+}
+
+@media (max-width: 1160px) {
+  .cinematicOverview {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "team"
+      "plan"
+      "map"
+      "activities"
+      "vehicles";
+  }
+
+  .parkedCarsStage {
+    left: 30%;
+  }
+
+  .expeditionVehiclesPanel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .cinematicOverview {
+    width: min(100% - 20px, 560px);
+  }
+
+  .cinematicHeroDashboard {
+    min-height: 620px;
+    border-radius: 20px;
+  }
+
+  .cinematicHeroScene {
+    background-position: center;
+  }
+
+  .cinematicHeroText {
+    padding: 26px 22px;
+  }
+
+  .cinematicHeroText h2 {
+    font-size: clamp(3rem, 16vw, 4.4rem);
+  }
+
+  .parkedCarsStage {
+    left: 8%;
+    right: 8%;
+    bottom: 116px;
+    height: 230px;
+  }
+
+  .multivanHero {
+    width: 64%;
+    left: -4%;
+    bottom: 26px;
+  }
+
+  .x3Hero {
+    width: 57%;
+    right: -4%;
+    bottom: 14px;
+  }
+
+  .heroStatsBar {
+    grid-template-columns: repeat(2, 1fr);
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    padding: 8px;
+  }
+
+  .heroStatsBar div {
+    padding: 8px;
+  }
+
+  .overviewMapPreview {
+    min-height: 250px;
+  }
+
+  .scenicGarage {
+    min-height: 720px;
+    border-radius: 22px;
+  }
+
+  .scenicGarage::before {
+    bottom: 250px;
+  }
+
+  .garageCar {
+    width: 82%;
+    min-height: 260px;
+  }
+
+  .garageCar.multivan {
+    left: 9%;
+    bottom: 320px;
+  }
+
+  .garageCar.x3 {
+    right: 9%;
+    bottom: 44px;
+  }
+
+  .garageCar > img {
+    height: 176px;
+  }
+
+  .garageCar::after {
+    top: 148px;
+  }
+
+  .cinematicVehicle {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cinematicVehicle img {
+    height: 110px !important;
+    max-width: 280px;
+  }
+}

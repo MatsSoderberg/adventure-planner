@@ -5,32 +5,50 @@ const plan = [
   ['2', 'Røros → Jotunheimen', '244 km · 3h 45m', '☀️ 18°'],
   ['3', 'Jotunheimen → Lom', '193 km · 3h 10m', '☁️ 15°'],
   ['4', 'Lom → Loen', '187 km · 3h 05m', '☀️ 19°'],
-  ['5', 'Loen → Geiranger', '128 km · 2h 25m', '☁️ 17°'],
-  ['6', 'Geiranger → Åndalsnes', '174 km · 2h 58m', '🌤️ 16°']
+  ['5', 'Loen → Geiranger', '128 km · 2h 25m', '☁️ 17°']
+]
+
+const topActivities = [
+  ['Loen Skylift', '★★★★★'],
+  ['Trollstigen', '★★★★★'],
+  ['Geirangerfjord', '★★★★★'],
+  ['Jotunheimen Hike', '★★★★☆']
 ]
 
 export default function PremiumOverview() {
+  const multivan = vehicles.find(v => v.id === 'multivan')
+  const x3 = vehicles.find(v => v.id === 'x3')
+
   return (
-    <section className="premiumOverview">
-      <div className="overviewHeroCard">
-        <div className="overviewHeroBg" />
-        <div className="overviewHeroContent">
+    <section className="premiumOverview cinematicOverview">
+      <div className="cinematicHeroDashboard">
+        <div className="cinematicHeroScene" />
+
+        <div className="cinematicHeroText">
           <span className="script">Välkommen</span>
           <h2>Team Ekerö</h2>
           <strong>Expedition · Norway 2026 🇳🇴</strong>
           <p>Ett äventyr genom fjäll, fjordar och ikoniska vägar.</p>
           <button>▶ Spela resan</button>
         </div>
-        <div className="overviewVehicleGlass realCarsGlass">
-          {vehicles.map((vehicle) => (
-            <img key={vehicle.id} src={vehicle.image} alt={vehicle.name} />
-          ))}
+
+        <div className="parkedCarsStage" aria-label="Expedition vehicles">
+          <img className="heroCar multivanHero" src={multivan.image} alt={multivan.name} />
+          <img className="heroCar x3Hero" src={x3.image} alt={x3.name} />
+        </div>
+
+        <div className="heroStatsBar">
+          <div><strong>1453 km</strong><span>Total sträcka</span></div>
+          <div><strong>19h 42m</strong><span>Total körtid</span></div>
+          <div><strong>27</strong><span>Sevärdheter</span></div>
+          <div><strong>7</strong><span>Boenden</span></div>
+          <div><strong>1123 m</strong><span>Högsta punkt</span></div>
         </div>
       </div>
 
-      <div className="overviewTeamCard">
+      <div className="overviewTeamCard premiumSideTeam">
         <div className="premiumCardHeader"><span>👥</span><h3>Vårt team</h3></div>
-        {teamMembers.map((member) => (
+        {teamMembers.slice(0, 7).map((member) => (
           <div className="overviewTeamRow" key={member.id}>
             <img src={member.avatar} alt={member.name} />
             <div><strong>{member.name}</strong><span>{member.role}</span></div>
@@ -40,7 +58,7 @@ export default function PremiumOverview() {
         ))}
       </div>
 
-      <div className="overviewPlanCard">
+      <div className="overviewPlanCard cinematicPanel">
         <div className="premiumCardHeader"><span>🗓️</span><h3>Resplan</h3></div>
         {plan.map(([num, title, meta, weather]) => (
           <div className="planRow" key={num}>
@@ -51,24 +69,36 @@ export default function PremiumOverview() {
         ))}
       </div>
 
-      <div className="overviewVehiclesCard">
-        <div className="premiumCardHeader"><span>🚗</span><h3>Expedition vehicles</h3></div>
-        {vehicles.map(vehicle => (
-          <div className={`premiumVehicle real ${vehicle.id}`} key={vehicle.id}>
-            <img src={vehicle.image} alt={vehicle.name} />
-            <div><span>{vehicle.color}</span><strong>{vehicle.name}</strong><small>{vehicle.role}</small></div>
+      <div className="overviewMapPreview cinematicPanel">
+        <div className="premiumCardHeader"><span>🗺️</span><h3>Resrutt</h3></div>
+        <div className="miniRouteMap">
+          <i className="routeLine" />
+          <span className="mapPoint p1">Idre</span>
+          <span className="mapPoint p2">Røros</span>
+          <span className="mapPoint p3">Lom</span>
+          <span className="mapPoint p4">Loen</span>
+          <span className="mapPoint p5">Geiranger</span>
+        </div>
+      </div>
+
+      <div className="overviewActivitiesCard cinematicPanel">
+        <div className="premiumCardHeader"><span>🏔️</span><h3>Topp aktiviteter</h3></div>
+        {topActivities.map(([name, stars]) => (
+          <div className="activityRow" key={name}>
+            <div className="activityThumb" />
+            <div><strong>{name}</strong><span>{stars}</span></div>
           </div>
         ))}
       </div>
 
-      <div className="overviewStatsCard">
-        <div className="premiumCardHeader"><span>📊</span><h3>Resans statistik</h3></div>
-        <div className="statTiles">
-          <div><strong>1453</strong><span>km</span></div>
-          <div><strong>27</strong><span>POI</span></div>
-          <div><strong>7</strong><span>dagar</span></div>
-          <div><strong>92</strong><span>index</span></div>
-        </div>
+      <div className="overviewVehiclesCard cinematicPanel expeditionVehiclesPanel">
+        <div className="premiumCardHeader"><span>🚗</span><h3>Expedition vehicles</h3></div>
+        {vehicles.map(vehicle => (
+          <div className={`premiumVehicle cinematicVehicle ${vehicle.id}`} key={vehicle.id}>
+            <img src={vehicle.image} alt={vehicle.name} />
+            <div><span>{vehicle.color}</span><strong>{vehicle.name}</strong><small>{vehicle.role}</small></div>
+          </div>
+        ))}
       </div>
     </section>
   )

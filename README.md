@@ -1,14 +1,14 @@
-# Northbound v9.1 – Real Car Images Fixed
+# Northbound v9.2 – Cinematic Cars
 
-This version fixes the vehicle images by bundling the car images locally in `/public/cars/`.
+This version makes the cars feel integrated into the app background instead of appearing as separate image cards.
 
-## Fixed
+## New in v9.2
 
-- Multivan image is now local: `/cars/multivan.webp`
-- BMW X3 image is now local: `/cars/bmw-x3.jpg`
-- Hero car glass uses actual images
-- Vehicle cards use actual images
-- Old CSS car illustrations are overridden
+- Cinematic hero with cars parked in the fjord scene
+- Real Multivan and BMW X3 images integrated with shadows and gradients
+- Reworked Premium Overview closer to the mockup
+- Vehicle card styling now uses scenic background instead of plain image boxes
+- Mobile-first car staging
 
 ## Netlify
 

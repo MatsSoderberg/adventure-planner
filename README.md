@@ -1,29 +1,13 @@
-# Northbound v8.0 – Team Ekerö Edition
+# Northbound v8.1 – Premium Mobile UI
 
-Personalized travel app for Norway Adventure 2026.
+Premium UI/UX lift for Team Ekerö Edition.
 
-## New in v8.0
+- Premium overview dashboard
+- Mobile-first responsive layout
+- Improved avatar strip on phones
+- Team panel and vehicle cards
+- Cleaner hierarchy closer to the mockup
 
-- Team Ekerö Expedition identity
-- Personal avatar group in the top menu
-- Team member profile panel
-- Vehicle cards: dark blue Volkswagen Multivan and carbon black BMW X3
-- More personal hero and expedition dashboard
-
-## Netlify
-
-Build command:
-
-```bash
-npm run build
-```
-
-Publish directory:
-
-```bash
-dist
-```
-
-## Sharing
-
-When Netlify deploys successfully, share the public Netlify URL with friends. Anyone with the link can open the app.
+Netlify:
+- Build command: `npm run build`
+- Publish directory: `dist`

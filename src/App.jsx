@@ -12,6 +12,7 @@ import ActivityExplorer from './components/ActivityExplorer'
 import DayCards from './components/DayCards'
 import PackList from './components/PackList'
 import TeamEkeroPanel from './components/TeamEkeroPanel'
+import PremiumOverview from './components/PremiumOverview'
 import ExperiencePanel from './components/ExperiencePanel'
 import PremiumMapGuide from './components/PremiumMapGuide'
 import CinematicIntro from './components/CinematicIntro'
@@ -49,10 +50,10 @@ export default function App() {
   return (
     <main>
       <Hero adventureScore={adventureScore} />
+      <PremiumOverview />
       <CinematicIntro adventureScore={adventureScore} />
       <JourneySummary adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />
-      <TeamEkeroPanel />
       <AIGuide planB={planB} selected={selected} status={selectedStatus} weather={selectedToday} />
       <ConciergePanel selected={selected} status={selectedStatus} />
 

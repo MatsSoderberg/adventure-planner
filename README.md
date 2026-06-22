@@ -1,6 +1,11 @@
-# Adventure Planner v2.1
+# Adventure Planner v2.2
 
-Interactive premium roadtrip planner. First trip: Norway Adventure 2026.
+New in v2.2:
+- Roadtrip Timeline
+- 7-day weather forecast per stop
+- Adventure Score
+- Activity mode filters
+- Better destination cards
 
 ## Netlify
 
@@ -14,13 +19,4 @@ Publish directory:
 
 ```bash
 dist
-```
-
-Node version is locked to 20 through `.nvmrc` and `netlify.toml`.
-
-## Local development
-
-```bash
-npm install
-npm run dev
 ```

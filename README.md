@@ -1,11 +1,26 @@
-# Adventure Planner
+# Adventure Planner v2.1
 
-Interactive roadtrip planner. First trip: Norway Adventure 2026.
+Interactive premium roadtrip planner. First trip: Norway Adventure 2026.
 
 ## Netlify
 
-Build command: `npm run build`
+Build command:
 
-Publish directory: `dist`
+```bash
+npm run build
+```
 
-Node is locked to 20 through `.nvmrc` and `netlify.toml`.
+Publish directory:
+
+```bash
+dist
+```
+
+Node version is locked to 20 through `.nvmrc` and `netlify.toml`.
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```

@@ -1,13 +1,25 @@
-# Northbound v8.1 – Premium Mobile UI
+# Northbound v9.0 – Real Cars Edition
 
-Premium UI/UX lift for Team Ekerö Edition.
+Team Ekerö Edition with real vehicle photography.
 
-- Premium overview dashboard
-- Mobile-first responsive layout
-- Improved avatar strip on phones
-- Team panel and vehicle cards
-- Cleaner hierarchy closer to the mockup
+## New in v9.0
 
-Netlify:
-- Build command: `npm run build`
-- Publish directory: `dist`
+- Real dark blue Volkswagen Multivan image
+- Real carbon black BMW X3 image
+- Hero vehicle cards closer to the mockup
+- Crew avatars assigned to vehicles
+- Better mobile layout for vehicle cards
+
+## Netlify
+
+Build command:
+
+```bash
+npm run build
+```
+
+Publish directory:
+
+```bash
+dist
+```

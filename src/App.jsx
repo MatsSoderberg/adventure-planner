@@ -13,6 +13,9 @@ import DayCards from './components/DayCards'
 import PackList from './components/PackList'
 import TeamEkeroPanel from './components/TeamEkeroPanel'
 import PremiumOverview from './components/PremiumOverview'
+import LiveDashboard from './components/LiveDashboard'
+import JourneyPulse from './components/JourneyPulse'
+import RealCarsShowcase from './components/RealCarsShowcase'
 import ExperiencePanel from './components/ExperiencePanel'
 import PremiumMapGuide from './components/PremiumMapGuide'
 import CinematicIntro from './components/CinematicIntro'
@@ -51,6 +54,8 @@ export default function App() {
     <main>
       <Hero adventureScore={adventureScore} />
       <PremiumOverview />
+      <LiveDashboard />
+      <RealCarsShowcase />
       <CinematicIntro adventureScore={adventureScore} />
       <JourneySummary adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />
@@ -92,6 +97,8 @@ export default function App() {
       <ExperiencePanel selected={selected} />
 
       <PhotoMode selected={selected} />
+
+      <JourneyPulse />
 
       <ActivityExplorer
         modes={modes}

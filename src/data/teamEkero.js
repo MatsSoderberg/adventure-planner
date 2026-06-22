@@ -9,6 +9,24 @@ export const teamMembers = [
 ]
 
 export const vehicles = [
-  { id: 'multivan', name: 'Volkswagen Multivan', color: 'Mörkblå', role: 'Comfort Cruiser', plate: 'TEAM VAN', accent: '#0e3a5c' },
-  { id: 'x3', name: 'BMW X3', color: 'Carbonsvart', role: 'Mountain Scout', plate: 'BMW X3', accent: '#111418' }
+  {
+    id: 'multivan',
+    name: 'Volkswagen Multivan',
+    color: 'Mörkblå',
+    role: 'Comfort Cruiser',
+    plate: 'TEAM VAN',
+    accent: '#0e3a5c',
+    image: 'https://car-images.bauersecure.com/wp-images/13273/1752x1168/080-vw-multivan-review-front-blue-ehybrid.jpg?mode=max&quality=90&scale=down',
+    crew: ['mats', 'asa', 'anna', 'johan']
+  },
+  {
+    id: 'x3',
+    name: 'BMW X3',
+    color: 'Carbonsvart',
+    role: 'Mountain Scout',
+    plate: 'BMW X3',
+    accent: '#111418',
+    image: 'https://www.hexagonclassics.com/userfiles/multimedia/bmw-x3-m40i-auto-petrol--2019-vehicle-20251002091510-11.jpg',
+    crew: ['wilmer', 'ludwig', 'malte']
+  }
 ]

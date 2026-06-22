@@ -53,8 +53,8 @@ export default function PremiumOverview() {
       <div className="overviewVehiclesCard">
         <div className="premiumCardHeader"><span>🚗</span><h3>Expedition vehicles</h3></div>
         {vehicles.map(vehicle => (
-          <div className={`premiumVehicle ${vehicle.id}`} key={vehicle.id}>
-            <div className="miniVehicle large"><i /><b /><b /></div>
+          <div className={`premiumVehicle real ${vehicle.id}`} key={vehicle.id}>
+            <img src={vehicle.image} alt={vehicle.name} />
             <div><span>{vehicle.color}</span><strong>{vehicle.name}</strong><small>{vehicle.role}</small></div>
           </div>
         ))}

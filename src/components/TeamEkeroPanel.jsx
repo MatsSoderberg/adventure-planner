@@ -34,12 +34,8 @@ export default function TeamEkeroPanel() {
         <div className="vehiclePanel">
           {vehicles.map((vehicle) => (
             <div className={`vehicleCard ${vehicle.id}`} key={vehicle.id} style={{ '--vehicle-accent': vehicle.accent }}>
-              <div className="vehicleIllustration">
-                <div className="carBody">
-                  <div className="carWindows" />
-                  <div className="wheel left" />
-                  <div className="wheel right" />
-                </div>
+              <div className="vehiclePhoto">
+                <img src={vehicle.image} alt={vehicle.name} />
               </div>
               <div>
                 <span>{vehicle.color}</span>

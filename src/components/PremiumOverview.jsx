@@ -21,9 +21,10 @@ export default function PremiumOverview() {
           <p>Ett äventyr genom fjäll, fjordar och ikoniska vägar.</p>
           <button>▶ Spela resan</button>
         </div>
-        <div className="overviewVehicleGlass">
-          <div className="miniVehicle van"><i /><b /><b /></div>
-          <div className="miniVehicle suv"><i /><b /><b /></div>
+        <div className="overviewVehicleGlass realCarsGlass">
+          {vehicles.map((vehicle) => (
+            <img key={vehicle.id} src={vehicle.image} alt={vehicle.name} />
+          ))}
         </div>
       </div>
 

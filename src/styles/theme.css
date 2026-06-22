@@ -2270,3 +2270,92 @@ body {
     justify-self: start;
   }
 }
+
+
+/* v9.1 Real car image fix - local Netlify-safe assets */
+.realCarsGlass {
+  display: flex !important;
+  gap: 14px;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: min(520px, calc(100% - 32px));
+}
+
+.realCarsGlass img {
+  width: min(240px, 44vw);
+  max-height: 150px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 34px rgba(0,0,0,.48));
+}
+
+.realCarsGlass img:nth-child(2) {
+  width: min(215px, 40vw);
+}
+
+.premiumVehicle.real,
+.premiumVehicle {
+  grid-template-columns: 148px 1fr;
+}
+
+.premiumVehicle.real img,
+.premiumVehicle > img {
+  width: 148px;
+  height: 84px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 22px rgba(0,0,0,.36));
+}
+
+.vehiclePhoto {
+  height: 118px;
+  margin-bottom: 18px;
+  display: grid;
+  place-items: center;
+}
+
+.vehiclePhoto img {
+  width: 100%;
+  max-width: 320px;
+  max-height: 118px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 30px rgba(0,0,0,.38));
+}
+
+.vehicleCard .vehicleIllustration {
+  display: none;
+}
+
+.overviewVehicleGlass:not(.realCarsGlass) {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .realCarsGlass {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    min-width: 0;
+    padding: 14px;
+  }
+
+  .realCarsGlass img {
+    width: 48%;
+    max-height: 112px;
+  }
+
+  .realCarsGlass img:nth-child(2) {
+    width: 43%;
+  }
+
+  .premiumVehicle.real,
+  .premiumVehicle {
+    grid-template-columns: 1fr;
+  }
+
+  .premiumVehicle.real img,
+  .premiumVehicle > img {
+    width: 100%;
+    max-width: 260px;
+    height: 100px;
+    justify-self: start;
+  }
+}

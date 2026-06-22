@@ -569,3 +569,161 @@ h3 { font-size: 1.18rem; letter-spacing: -.03em; margin-bottom: 10px; }
     grid-template-columns: 1fr;
   }
 }
+
+
+/* v4.0 Premium Map */
+.poi-marker {
+  background: transparent;
+}
+
+.poi-marker div {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(7,17,20,.92);
+  border: 2px solid #ffdd70;
+  box-shadow: 0 12px 28px rgba(0,0,0,.34);
+}
+
+.poi-marker span {
+  font-size: 1rem;
+}
+
+.premiumMapGuide {
+  padding-top: 24px;
+}
+
+.stageRail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.stageRail button,
+.poiGrid button,
+.poiDetail {
+  border: 1px solid rgba(255,255,255,.1);
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+}
+
+.stageRail button {
+  padding: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.stageRail button:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,221,112,.55);
+}
+
+.stageRail span {
+  display: block;
+  color: #ffdd70;
+  font-weight: 950;
+  margin-bottom: 6px;
+}
+
+.stageRail strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stageRail small {
+  color: rgba(247,251,255,.6);
+  line-height: 1.45;
+}
+
+.poiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.poiGrid button {
+  padding: 18px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.poiGrid button:hover,
+.poiGrid button.active {
+  transform: translateY(-3px);
+  border-color: rgba(255,221,112,.55);
+}
+
+.poiGrid span,
+.poiDetail span {
+  display: block;
+  color: #ffdd70;
+  font-size: .78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.poiGrid strong,
+.poiDetail strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.poiGrid p,
+.poiDetail p {
+  margin-bottom: 0;
+  font-size: .9rem;
+}
+
+.poiDetail {
+  margin-top: 18px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  border-color: rgba(255,221,112,.3);
+}
+
+.poiDetail a {
+  flex: 0 0 auto;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: #ffdd70;
+  color: #071114;
+  font-weight: 950;
+}
+
+@media (max-width: 1020px) {
+  .stageRail {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .poiGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .stageRail,
+  .poiGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .poiDetail {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

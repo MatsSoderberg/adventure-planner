@@ -12,12 +12,15 @@ import ActivityExplorer from './components/ActivityExplorer'
 import DayCards from './components/DayCards'
 import PackList from './components/PackList'
 import ExperiencePanel from './components/ExperiencePanel'
+import PremiumMapGuide from './components/PremiumMapGuide'
 
 export default function App() {
   const [selectedId, setSelectedId] = useState('geiranger')
   const [weather, setWeather] = useState({})
   const [mode, setMode] = useState('all')
   const [mapMode, setMapMode] = useState('classic')
+  const [selectedPoi, setSelectedPoi] = useState(null)
+  const [activeSegment, setActiveSegment] = useState(null)
 
   const selected = stops.find((stop) => stop.id === selectedId) || stops[0]
   const selectedForecast = weather[selected.id]
@@ -51,6 +54,9 @@ export default function App() {
           onSelect={setSelectedId}
           mapMode={mapMode}
           setMapMode={setMapMode}
+          selectedPoi={selectedPoi}
+          onSelectPoi={setSelectedPoi}
+          activeSegment={activeSegment}
         />
 
         <DestinationPanel
@@ -60,6 +66,12 @@ export default function App() {
           status={selectedStatus}
         />
       </section>
+
+      <PremiumMapGuide
+        selectedPoi={selectedPoi}
+        onSelectPoi={setSelectedPoi}
+        onFlySegment={setActiveSegment}
+      />
 
       <ExperiencePanel selected={selected} />
 

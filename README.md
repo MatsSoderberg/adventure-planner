@@ -1,15 +1,15 @@
-# Northbound / Adventure Planner v3.1
+# Northbound / Adventure Planner v4.0
 
-A premium interactive roadtrip planner. First journey: Norway Adventure 2026.
+Premium map sprint.
 
-## New in v3.1
+## New in v4.0
 
-- Destination experience panel
-- Missa inte per stopp
-- Aktiviteter per destination
-- Mat/fika-tips per destination
-- Snabbknappar till Google Maps/search
-- Mer praktisk reseinformation utan att tappa premiumkänslan
+- Scenic route segments
+- Fly-to-stage controls
+- Iconic POI markers along the route
+- POI detail cards
+- Better map experience without new external routing dependencies
+- Keeps Netlify simple and stable
 
 ## Netlify
 
@@ -24,5 +24,3 @@ Publish directory:
 ```bash
 dist
 ```
-
-Node version is locked to 20 through `.nvmrc` and `netlify.toml`.

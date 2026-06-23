@@ -1,10 +1,10 @@
-# Northbound X v26 – Buttons + Duplicate Norway Fix
+# Northbound X v27 – Real Button + Duplicate Fix
 
-Fixar:
-- tar bort dubbla nedre Norway 2026-blocket
-- behåller bara Norway 2026-kortet bredvid Route Chapters
-- gör hero-knapparna klickbara med riktiga anchor-zoner
-- tar bort lilla dubbla statistikpanelen
+Faktisk fix:
+- tog bort CinematicIntro från App.jsx, vilket var den undre dubbla Norway 2026-rutan
+- tog bort kodad liten statistikpanel i hero
+- ersatte osynliga click-zones med riktiga klickbara knappar ovanpå hero
+- knapparna länkar till #route
 
 Netlify:
 - Build command: `npm run build`

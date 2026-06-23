@@ -5228,101 +5228,75 @@ main > .hero,
 @media(max-width:520px){.nxDashboard{width:calc(100% - 16px)!important;gap:10px!important}.v24NorwayCard{min-height:300px!important;padding:18px!important}.v24NorwayStats{gap:8px}.v24NorwayStats div{padding:10px}.v24NorwayStats strong{font-size:1rem}.v24NorwayStats small{font-size:.68rem}}
 
 
-/* v25: clickable baked hero buttons + keep only large baked stats banner */
+/* v27: actual fix for duplicate Norway and working hero buttons */
+
+/* Remove small coded stats panel from hero */
 .nxCleanMetrics {
   display: none !important;
 }
 
-/* Invisible clickable zones placed over the buttons that are part of the hero image */
-.heroClickZones {
-  position: absolute;
-  inset: 0;
-  z-index: 30;
-  pointer-events: none;
-}
-
-.heroClickZone {
-  position: absolute;
-  display: block;
-  pointer-events: auto;
-  cursor: pointer;
-  border-radius: 18px;
-  text-decoration: none;
-  background: transparent;
-}
-
-/* Desktop coordinates based on current hero image composition */
-.heroStartZone {
-  left: clamp(26px, 3.4vw, 64px);
-  bottom: clamp(118px, 14.8vh, 170px);
-  width: clamp(205px, 17vw, 280px);
-  height: clamp(58px, 5.2vw, 74px);
-}
-
-.heroMapZone {
-  left: clamp(250px, 20vw, 355px);
-  bottom: clamp(118px, 14.8vh, 170px);
-  width: clamp(150px, 12.5vw, 210px);
-  height: clamp(58px, 5.2vw, 74px);
-}
-
-/* Make sure no old overlay buttons remain visible */
+/* Ensure old invisible click zones and old overlay buttons are gone */
+.heroClickZones,
+.heroClickZone,
 .nxCleanActions,
 .nxPrimaryCta,
 .nxSecondaryCta {
   display: none !important;
 }
 
-/* Because coded stats are gone, reduce bottom overlay darkness slightly */
-.nxHeroClean::after,
-.nxHeroMockup::after {
-  background:
-    linear-gradient(to top, rgba(3,7,11,.58) 0%, transparent 22%),
-    linear-gradient(90deg, rgba(3,7,11,.10), transparent 48%, rgba(3,7,11,.04)) !important;
+/* Real visible React buttons placed on top of the baked button area */
+.heroRealActions {
+  position: absolute;
+  z-index: 9999;
+  left: clamp(30px, 3.15vw, 60px);
+  bottom: clamp(118px, 14.1vh, 165px);
+  display: flex;
+  gap: clamp(10px, 1.3vw, 18px);
+  pointer-events: auto;
 }
 
-/* Mobile clickable zones */
-@media (max-width: 900px) {
-  .heroStartZone {
-    left: 5%;
-    bottom: 19.8%;
-    width: 43%;
-    height: 6.8%;
-  }
-
-  .heroMapZone {
-    left: 52%;
-    bottom: 19.8%;
-    width: 41%;
-    height: 6.8%;
-  }
+.heroRealActions a {
+  min-height: clamp(54px, 5vw, 70px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  text-decoration: none;
+  font-weight: 950;
+  letter-spacing: -.02em;
+  box-shadow: 0 18px 44px rgba(0,0,0,.32);
+  backdrop-filter: blur(16px);
+  cursor: pointer;
 }
 
-@media (max-width: 520px) {
-  .heroStartZone {
-    left: 4%;
-    bottom: 20.8%;
-    width: 45%;
-    height: 6.6%;
-  }
-
-  .heroMapZone {
-    left: 52%;
-    bottom: 20.8%;
-    width: 44%;
-    height: 6.6%;
-  }
+.heroRealPrimary {
+  width: clamp(205px, 16.7vw, 278px);
+  background: linear-gradient(135deg, #75d189, #45a768);
+  color: #031008;
+  border: 1px solid rgba(255,255,255,.08);
 }
 
+.heroRealSecondary {
+  width: clamp(150px, 12.5vw, 210px);
+  background: rgba(3,7,11,.70);
+  color: #f4fbf7;
+  border: 1px solid rgba(255,255,255,.16);
+}
 
-/* v26 final: one Norway card only + reliable hero button clicks */
+/* Make sure hero image never steals click */
+.nxHeroArtClean,
+.nxHeroArt {
+  pointer-events: none !important;
+}
 
-/* Hide the duplicate lower Norway 2026 card/section no matter what class it uses */
-.nxDashboard ~ .section:has(h2),
-.nxDashboard ~ section:has(h2),
-section:has(.heroCard),
-section:has(.featureCard),
-section:has(.daysGrid),
+/* Hide the old duplicate CinematicIntro if markup somehow survives */
+.cinematic,
+.cinematicIntro,
+section.cinematic {
+  display: none !important;
+}
+
+/* Keep only the v24 Norway card in dashboard */
 .heroCard,
 .featureCard,
 .norwayCard,
@@ -5333,98 +5307,33 @@ section:has(.daysGrid),
   display: none !important;
 }
 
-/* But keep normal sections that are not the duplicate by not touching main app containers above */
-
-/* Remove small coded hero stats if still present */
-.nxCleanMetrics {
-  display: none !important;
-}
-
-/* Remove old overlay CTA if still present */
-.nxCleanActions,
-.nxPrimaryCta,
-.nxSecondaryCta {
-  display: none !important;
-}
-
-/* Real clickable invisible anchors over the baked-in hero buttons */
-.nxHeroClean,
-.nxHeroMockup {
-  position: relative !important;
-}
-
-.heroClickZones {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 999 !important;
-  pointer-events: none !important;
-}
-
-.heroClickZone {
-  position: absolute !important;
-  display: block !important;
-  pointer-events: auto !important;
-  cursor: pointer !important;
-  color: transparent !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-  text-decoration: none !important;
-  border-radius: 18px !important;
-  background: rgba(255,255,255,0) !important;
-}
-
-/* Desktop click coordinates over baked image buttons */
-.heroStartZone {
-  left: 3.1% !important;
-  bottom: 29.8% !important;
-  width: 17.2% !important;
-  height: 8.3% !important;
-}
-
-.heroMapZone {
-  left: 21.8% !important;
-  bottom: 29.8% !important;
-  width: 13.8% !important;
-  height: 8.3% !important;
-}
-
-/* Ensure hero image/overlays don't steal clicks */
-.nxHeroArtClean,
-.nxHeroArt,
-.nxHeroClean::after,
-.nxHeroMockup::after {
-  pointer-events: none !important;
-}
-
-/* Mobile coordinates */
+/* Mobile button placement */
 @media (max-width: 900px) {
-  .heroStartZone {
-    left: 4.5% !important;
-    bottom: 20.5% !important;
-    width: 44% !important;
-    height: 7.4% !important;
+  .heroRealActions {
+    left: 14px;
+    right: 14px;
+    bottom: 222px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
-  .heroMapZone {
-    left: 52% !important;
-    bottom: 20.5% !important;
-    width: 43% !important;
-    height: 7.4% !important;
+  .heroRealActions a {
+    width: auto;
+    min-height: 56px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 0 12px;
   }
 }
 
 @media (max-width: 520px) {
-  .heroStartZone {
-    left: 4% !important;
-    bottom: 21% !important;
-    width: 45% !important;
-    height: 7% !important;
+  .heroRealActions {
+    bottom: 238px;
   }
 
-  .heroMapZone {
-    left: 52% !important;
-    bottom: 21% !important;
-    width: 44% !important;
-    height: 7% !important;
+  .heroRealActions a {
+    min-height: 54px;
+    font-size: .95rem;
   }
 }

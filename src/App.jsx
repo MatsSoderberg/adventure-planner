@@ -19,7 +19,6 @@ import JourneyPulse from './components/JourneyPulse'
 import RealCarsShowcase from './components/RealCarsShowcase'
 import ExperiencePanel from './components/ExperiencePanel'
 import PremiumMapGuide from './components/PremiumMapGuide'
-import CinematicIntro from './components/CinematicIntro'
 import ConciergePanel from './components/ConciergePanel'
 import PhotoMode from './components/PhotoMode'
 import ElevationProfile from './components/ElevationProfile'
@@ -55,7 +54,6 @@ export default function App() {
     <main>
       <Hero adventureScore={adventureScore} />
       <NorthboundX />
-      <CinematicIntro adventureScore={adventureScore} />
       <JourneySummary adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />
       <AIGuide planB={planB} selected={selected} status={selectedStatus} weather={selectedToday} />

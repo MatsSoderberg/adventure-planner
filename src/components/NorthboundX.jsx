@@ -55,6 +55,18 @@ export default function NorthboundX() {
             ))}
           </div>
         </article>
+
+        <article className="nxCard v24NorwayCard">
+          <span className="nxKicker">Northbound presents</span>
+          <h2>Norway 2026</h2>
+          <p>1450 km · 7 dagar · fjäll · fjord · väderstyrd roadbook</p>
+          <div className="v24NorwayStats">
+            <div><strong>40</strong><small>Adventure Score</small></div>
+            <div><strong>6</strong><small>Scenic stages</small></div>
+            <div><strong>11</strong><small>Iconic POIs</small></div>
+          </div>
+        </article>
+
       </section>
     </section>
   )

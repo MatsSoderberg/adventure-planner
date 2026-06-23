@@ -5203,148 +5203,26 @@ main > .hero,
   }
 }
 
-
-/* v23: Route Chapters + Norway 2026 side-by-side on desktop */
-.nxDashboard {
-  width: min(1120px, calc(100% - 28px)) !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-  gap: 14px !important;
-  align-items: stretch !important;
-}
-
-.nxMission {
-  grid-column: 1 / -1 !important;
-}
-
-/* Route chapters should occupy left column only */
-.nxDashboard > .nxCard:has(.nxChapters) {
-  grid-column: 1 !important;
-  height: 100% !important;
-}
-
-/* Pull Norway/large scenic card up next to Route Chapters */
-.nxDashboard + .section,
-.nxDashboard + section,
-.section:has(.heroCard),
-.section:has(.featureCard),
-.section:has(.daysGrid) {
-  width: min(1120px, calc(100% - 28px)) !important;
-  margin: -14px auto 0 !important;
-}
-
-/* Try to place the Norway 2026 card into the right lane visually */
-.section:has(.heroCard),
-.section:has(.featureCard) {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-  gap: 14px !important;
-  align-items: stretch !important;
-}
-
-.section:has(.heroCard) > .heroCard,
-.section:has(.featureCard) > .featureCard,
-.section:has(.daysGrid) > .daysGrid {
-  grid-column: 2 !important;
-  margin-top: 0 !important;
-}
-
-/* Fallback for common Norway card classes */
-.heroCard,
-.featureCard,
-.norwayCard,
-.roadbookHero,
-.daysHero {
-  max-width: none !important;
-  width: 100% !important;
-  margin-top: 0 !important;
-}
-
-/* Make the big Norway card compact enough to align with route panel */
-.heroCard,
-.featureCard {
-  min-height: 420px !important;
-  border-radius: 24px !important;
-  overflow: hidden !important;
-}
-
-/* If Norway 2026 appears inside a generic section, remove excess section spacing */
-.section {
-  padding-top: 18px !important;
-  padding-bottom: 22px !important;
-}
-
-/* Route panel tighter so side-by-side feels balanced */
-.nxDashboard > .nxCard:has(.nxChapters) {
-  padding: 18px !important;
-}
-
-.nxChapters > div {
-  min-height: 58px !important;
-}
-
-.nxChapters strong {
-  font-size: .94rem !important;
-}
-
-.nxChapters small {
-  font-size: .78rem !important;
-}
-
-/* Desktop only: use available width better */
-@media (min-width: 901px) {
-  .nxDashboard {
-    margin-bottom: 0 !important;
-  }
-
-  .nxDashboard > .nxCard:has(.nxChapters) {
-    align-self: start !important;
-  }
-
-  /* Hide empty right gap by allowing following Norway card to sit higher */
-  .nxDashboard + * {
-    transform: translateY(-100%);
-    margin-bottom: -360px !important;
-    pointer-events: auto;
-  }
-
-  .nxDashboard + * > * {
-    transform: translateX(calc(50% + 7px));
-    width: calc(50% - 7px) !important;
-  }
-}
-
-/* Mobile: back to one clean column */
-@media (max-width: 900px) {
-  .nxDashboard {
-    width: min(100% - 20px, 620px) !important;
-    grid-template-columns: 1fr !important;
-    gap: 12px !important;
-    margin-bottom: 22px !important;
-  }
-
-  .nxDashboard > .nxCard:has(.nxChapters) {
-    grid-column: auto !important;
-  }
-
-  .nxDashboard + *,
-  .nxDashboard + * > * {
-    transform: none !important;
-    width: min(100% - 20px, 620px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .section:has(.heroCard),
-  .section:has(.featureCard) {
-    display: block !important;
-    width: min(100% - 20px, 620px) !important;
-    margin-top: 0 !important;
-  }
-
-  .section:has(.heroCard) > .heroCard,
-  .section:has(.featureCard) > .featureCard,
-  .section:has(.daysGrid) > .daysGrid {
-    grid-column: auto !important;
-    width: 100% !important;
-  }
-}
+/* v24: Route + Norway in real grid */
+.nxDashboard{width:min(1120px,calc(100% - 28px))!important;margin:18px auto 48px!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:14px!important;align-items:stretch!important}
+.nxMission{grid-column:1/-1!important}
+.nxDashboard>.nxCard:has(.nxChapters){grid-column:1!important;height:100%!important;padding:18px!important}
+.v24NorwayCard{grid-column:2!important;height:100%!important;min-height:408px!important;position:relative;overflow:hidden;display:flex!important;flex-direction:column;justify-content:flex-end;background:linear-gradient(90deg,rgba(5,11,16,.76),rgba(5,11,16,.18)),linear-gradient(to top,rgba(5,11,16,.88),transparent 52%),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=78') center/cover!important}
+.v24NorwayCard::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 10%,rgba(255,209,122,.18),transparent 32%),radial-gradient(circle at 18% 0%,rgba(118,213,139,.1),transparent 34%);pointer-events:none}
+.v24NorwayCard>*{position:relative;z-index:1}
+.v24NorwayCard h2{font-size:clamp(3rem,6vw,5.4rem)!important;line-height:.9!important;letter-spacing:-.08em!important;margin:0 0 10px!important}
+.v24NorwayCard p{color:rgba(247,251,255,.72)!important;margin:0 0 24px!important}
+.v24NorwayStats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.v24NorwayStats div{padding:14px;border-radius:16px;background:rgba(3,7,11,.58);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(12px)}
+.v24NorwayStats strong,.v24NorwayStats small{display:block}
+.v24NorwayStats strong{font-size:1.25rem}
+.v24NorwayStats small{color:rgba(247,251,255,.6);font-size:.78rem}
+.heroCard,.featureCard,.norwayCard,.roadbookHero,.daysHero{display:none!important}
+.nxDashboard+.section,.nxDashboard+section{display:none!important}
+.nxChapters{gap:9px!important}
+.nxChapters>div{min-height:58px!important;padding:10px!important;border-radius:18px!important;display:grid!important;grid-template-columns:42px minmax(0,1fr)!important;gap:12px!important;align-items:center!important}
+.nxChapters>div>div{padding:10px 12px!important;min-height:auto!important;border-radius:16px!important;display:block!important}
+.nxChapters strong{display:block!important;margin-bottom:3px!important;font-size:.95rem!important;white-space:normal!important}
+.nxChapters small{display:block!important;font-size:.78rem!important;line-height:1.25!important;white-space:normal!important}
+@media(max-width:900px){.nxDashboard{width:min(100% - 20px,620px)!important;grid-template-columns:1fr!important;gap:12px!important;margin-top:14px!important}.nxDashboard>.nxCard:has(.nxChapters),.v24NorwayCard{grid-column:auto!important}.v24NorwayCard{min-height:330px!important}.v24NorwayCard h2{font-size:clamp(2.8rem,13vw,4.2rem)!important}}
+@media(max-width:520px){.nxDashboard{width:calc(100% - 16px)!important;gap:10px!important}.v24NorwayCard{min-height:300px!important;padding:18px!important}.v24NorwayStats{gap:8px}.v24NorwayStats div{padding:10px}.v24NorwayStats strong{font-size:1rem}.v24NorwayStats small{font-size:.68rem}}

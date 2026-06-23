@@ -55,6 +55,7 @@ export default function NorthboundX() {
               <div key={member.id}>
                 <img src={member.avatar} alt={member.realName || member.name} />
                 <strong>{member.name}</strong>
+                <em>{member.realName}</em>
                 <small>{member.role}</small>
               </div>
             ))}

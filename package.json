@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-avatar-name-fix",
-  "version": "16.0.0",
+  "name": "northbound-x-avatar-precision",
+  "version": "17.0.0",
   "private": true,
   "type": "module",
   "scripts": {

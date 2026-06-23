@@ -1,9 +1,10 @@
-# Northbound X v17 – Avatar Precision
+# Northbound X v18 – Clean No Avatars
 
-- ny crop-metod med individuell centerpunkt och zoom
-- namn: Sudden, Ankan, Wille, Nisse, Frida, Max, Jonte
-- riktiga namn visas som underrad
-- större crew-kort med statusprick
+Rensad version:
+- tar bort personliga avatarer och crew-block
+- döljer AI-ansiktsraden i hero-bilden
+- behåller ren Team Ekerö-känsla
+- bättre professionell layout utan misslyckade ansikts-crops
 
 Netlify:
 - Build command: `npm run build`

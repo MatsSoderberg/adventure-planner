@@ -21,6 +21,8 @@ export default function NorthboundX() {
       <div className="nxHeroClean">
         <img className="nxHeroArtClean" src="/hero/team-ekero-hero-clean.png" alt="Team Ekerö Norway Expedition" />
 
+        <div className="nxCleanLabel">Team Ekerö</div>
+
         <div className="nxCleanActions">
           <a className="nxPrimaryCta" href="#route">▶ Starta expedition</a>
           <a className="nxSecondaryCta" href="#route">Visa karta</a>
@@ -45,20 +47,6 @@ export default function NorthboundX() {
             <div><strong>18°</strong><span>best window</span></div>
             <div><strong>4h 15m</strong><span>drive today</span></div>
             <div><strong>82%</strong><span>range/fuel</span></div>
-          </div>
-        </article>
-
-        <article className="nxCard">
-          <span className="nxKicker">Crew</span>
-          <div className="nxCrewGrid">
-            {teamMembers.map(member => (
-              <div key={member.id}>
-                <img src={member.avatar} alt={member.realName || member.name} />
-                <strong>{member.name}</strong>
-                <em>{member.realName}</em>
-                <small>{member.role}</small>
-              </div>
-            ))}
           </div>
         </article>
 

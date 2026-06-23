@@ -53,7 +53,7 @@ export default function NorthboundX() {
           <div className="nxCrewGrid">
             {teamMembers.map(member => (
               <div key={member.id}>
-                <img src={member.avatar} alt={member.name} />
+                <img src={member.avatar} alt={member.realName || member.name} />
                 <strong>{member.name}</strong>
                 <small>{member.role}</small>
               </div>

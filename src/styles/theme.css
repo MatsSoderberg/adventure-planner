@@ -4667,3 +4667,15 @@ main > .hero,
     bottom: 255px !important;
   }
 }
+
+/* v16 avatar/name polish */
+.nxCrew img,.xMiniCrew img,.teamAvatarStrip img,.nxCrewGrid img,.xTeamList img,.overviewTeamRow img,.teamMember img,.missionCrew img,.carCrew img{
+  object-fit:cover!important;object-position:center!important;border:2px solid rgba(255,255,255,.92)!important;
+  box-shadow:0 0 0 2px rgba(117,209,137,.18),0 10px 26px rgba(0,0,0,.32)!important;background:#071116!important;
+}
+.nxCrew img,.xMiniCrew img,.teamAvatarStrip img{transition:transform .18s ease;transform:translateZ(0)}
+.nxCrew img:hover,.xMiniCrew img:hover,.teamAvatarStrip img:hover{transform:translateY(-2px) scale(1.06);z-index:4}
+.nxCrewGrid strong,.xTeamList span,.overviewTeamRow strong,.teamMember strong{letter-spacing:-.02em}
+.nxCrewGrid strong,.xTeamList span{font-size:1.02rem;color:#f7fbff}
+.nxCrewGrid small,.xTeamList small{color:rgba(247,251,255,.62)}
+@media(max-width:720px){.nxCrew img{width:34px!important;height:34px!important}.nxCrewGrid img{width:54px!important;height:54px!important}}

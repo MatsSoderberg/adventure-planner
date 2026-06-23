@@ -44,7 +44,7 @@ export default function PremiumOverview() {
         <div className="premiumCardHeader"><span>👥</span><h3>Vårt team</h3></div>
         {teamMembers.slice(0, 7).map((member) => (
           <div className="overviewTeamRow" key={member.id}>
-            <img src={member.avatar} alt={member.name} />
+            <img src={member.avatar} alt={member.realName || member.name} />
             <div><strong>{member.name}</strong><span>{member.role}</span></div>
             <div className="overviewIcons">{member.icons.map(icon => <small key={icon}>{icon}</small>)}</div>
             <div className="overviewStat"><span>{member.statLabel}</span><strong>{member.statValue}</strong></div>

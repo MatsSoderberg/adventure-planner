@@ -28,7 +28,7 @@ export default function RealCarsShowcase() {
               <small>{vehicle.role}</small>
               <div className="carCrew">
                 {crewFor(vehicle).map((member) => (
-                  <img key={member.id} src={member.avatar} alt={member.name} title={member.name} />
+                  <img key={member.id} src={member.avatar} alt={member.realName || member.name} title={member.realName || member.name} />
                 ))}
               </div>
             </div>

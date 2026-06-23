@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-clean-surgical-fix",
-  "version": "21.0.0",
+  "name": "northbound-x-route-norway-grid",
+  "version": "23.0.0",
   "private": true,
   "type": "module",
   "scripts": {

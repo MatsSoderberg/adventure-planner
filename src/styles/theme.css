@@ -4959,3 +4959,392 @@ main > .hero,
     bottom: 18px !important;
   }
 }
+
+
+/* v22 Compact + mobile-first alignment */
+:root {
+  --v22-page: min(1120px, calc(100% - 28px));
+  --v22-gap: 14px;
+}
+
+.nxDashboard {
+  width: var(--v22-page) !important;
+  margin: 18px auto 48px !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: var(--v22-gap) !important;
+  align-items: start !important;
+}
+
+.nxMission {
+  grid-column: 1 / -1 !important;
+}
+
+.nxCard {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 20px 22px !important;
+  border-radius: 24px !important;
+}
+
+.nxCard h2 {
+  font-size: clamp(2.3rem, 4.4vw, 3.7rem) !important;
+  line-height: .92 !important;
+  margin-bottom: 12px !important;
+}
+
+.nxCard p {
+  margin-bottom: 14px !important;
+}
+
+.nxSignals {
+  margin-top: 14px !important;
+  border-radius: 18px !important;
+}
+
+.nxSignals div {
+  padding: 14px 16px !important;
+}
+
+.nxChapters {
+  gap: 9px !important;
+}
+
+.nxChapters > div {
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) !important;
+  gap: 12px !important;
+  align-items: center !important;
+  min-height: 64px !important;
+  padding: 10px !important;
+  border-radius: 18px !important;
+}
+
+.nxChapters b {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: .86rem !important;
+}
+
+.nxChapters > div > div {
+  display: block !important;
+  padding: 10px 12px !important;
+  border-radius: 16px !important;
+  min-height: auto !important;
+}
+
+.nxChapters strong {
+  display: block !important;
+  margin-bottom: 3px !important;
+  font-size: .98rem !important;
+}
+
+.nxChapters small {
+  display: block !important;
+  font-size: .82rem !important;
+  color: rgba(247,251,255,.62) !important;
+}
+
+/* Tighten old sections that still exist further down */
+.section {
+  padding-block: 30px !important;
+}
+
+.sectionHead {
+  margin-bottom: 18px !important;
+}
+
+.pulseGrid,
+.liveDashboard,
+.realCarsGrid {
+  gap: 12px !important;
+  margin-top: 16px !important;
+}
+
+.overviewPlanCard,
+.overviewVehiclesCard,
+.overviewStatsCard,
+.overviewMapPreview,
+.overviewActivitiesCard,
+.nxCard {
+  box-shadow: 0 22px 70px rgba(0,0,0,.26) !important;
+}
+
+/* Hero spacing polish */
+.nxCleanMetrics {
+  left: max(12px, calc((100% - 1120px) / 2)) !important;
+  right: max(12px, calc((100% - 1120px) / 2)) !important;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --v22-page: min(100% - 20px, 620px);
+    --v22-gap: 12px;
+  }
+
+  .nxDashboard {
+    grid-template-columns: 1fr !important;
+    margin-top: 14px !important;
+    margin-bottom: 36px !important;
+  }
+
+  .nxCard {
+    padding: 18px !important;
+    border-radius: 22px !important;
+  }
+
+  .nxCard h2 {
+    font-size: clamp(2.2rem, 10vw, 3.1rem) !important;
+    margin-bottom: 10px !important;
+  }
+
+  .nxSignals {
+    grid-template-columns: 1fr !important;
+  }
+
+  .nxSignals div {
+    display: grid !important;
+    grid-template-columns: 90px 1fr !important;
+    gap: 8px !important;
+    align-items: baseline !important;
+    padding: 12px 14px !important;
+  }
+
+  .nxSignals strong {
+    font-size: 1.28rem !important;
+  }
+
+  .nxChapters > div {
+    min-height: 58px !important;
+    padding: 9px !important;
+  }
+
+  .nxChapters > div > div {
+    padding: 9px 10px !important;
+  }
+
+  .nxCleanMetrics {
+    left: 10px !important;
+    right: 10px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --v22-page: calc(100% - 16px);
+    --v22-gap: 10px;
+  }
+
+  .nxDashboard {
+    margin-top: 10px !important;
+  }
+
+  .nxCard {
+    padding: 15px !important;
+    border-radius: 20px !important;
+  }
+
+  .nxCard h2 {
+    font-size: clamp(2rem, 11vw, 2.65rem) !important;
+  }
+
+  .nxKicker {
+    font-size: .68rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .nxSignals div {
+    grid-template-columns: 76px 1fr !important;
+    padding: 10px 12px !important;
+  }
+
+  .nxChapters {
+    gap: 8px !important;
+  }
+
+  .nxChapters > div {
+    grid-template-columns: 36px 1fr !important;
+    gap: 8px !important;
+    min-height: 54px !important;
+    padding: 8px !important;
+    border-radius: 16px !important;
+  }
+
+  .nxChapters b {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: .78rem !important;
+  }
+
+  .nxChapters strong {
+    font-size: .92rem !important;
+  }
+
+  .nxChapters small {
+    font-size: .76rem !important;
+  }
+
+  .nxCleanMetrics {
+    padding: 10px !important;
+    gap: 1px !important;
+  }
+
+  .nxCleanMetrics div {
+    padding: 9px 10px !important;
+  }
+
+  .nxCleanMetrics strong {
+    font-size: 1rem !important;
+  }
+
+  .nxCleanMetrics span {
+    font-size: .72rem !important;
+  }
+}
+
+
+/* v23: Route Chapters + Norway 2026 side-by-side on desktop */
+.nxDashboard {
+  width: min(1120px, calc(100% - 28px)) !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+
+.nxMission {
+  grid-column: 1 / -1 !important;
+}
+
+/* Route chapters should occupy left column only */
+.nxDashboard > .nxCard:has(.nxChapters) {
+  grid-column: 1 !important;
+  height: 100% !important;
+}
+
+/* Pull Norway/large scenic card up next to Route Chapters */
+.nxDashboard + .section,
+.nxDashboard + section,
+.section:has(.heroCard),
+.section:has(.featureCard),
+.section:has(.daysGrid) {
+  width: min(1120px, calc(100% - 28px)) !important;
+  margin: -14px auto 0 !important;
+}
+
+/* Try to place the Norway 2026 card into the right lane visually */
+.section:has(.heroCard),
+.section:has(.featureCard) {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 14px !important;
+  align-items: stretch !important;
+}
+
+.section:has(.heroCard) > .heroCard,
+.section:has(.featureCard) > .featureCard,
+.section:has(.daysGrid) > .daysGrid {
+  grid-column: 2 !important;
+  margin-top: 0 !important;
+}
+
+/* Fallback for common Norway card classes */
+.heroCard,
+.featureCard,
+.norwayCard,
+.roadbookHero,
+.daysHero {
+  max-width: none !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+}
+
+/* Make the big Norway card compact enough to align with route panel */
+.heroCard,
+.featureCard {
+  min-height: 420px !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+}
+
+/* If Norway 2026 appears inside a generic section, remove excess section spacing */
+.section {
+  padding-top: 18px !important;
+  padding-bottom: 22px !important;
+}
+
+/* Route panel tighter so side-by-side feels balanced */
+.nxDashboard > .nxCard:has(.nxChapters) {
+  padding: 18px !important;
+}
+
+.nxChapters > div {
+  min-height: 58px !important;
+}
+
+.nxChapters strong {
+  font-size: .94rem !important;
+}
+
+.nxChapters small {
+  font-size: .78rem !important;
+}
+
+/* Desktop only: use available width better */
+@media (min-width: 901px) {
+  .nxDashboard {
+    margin-bottom: 0 !important;
+  }
+
+  .nxDashboard > .nxCard:has(.nxChapters) {
+    align-self: start !important;
+  }
+
+  /* Hide empty right gap by allowing following Norway card to sit higher */
+  .nxDashboard + * {
+    transform: translateY(-100%);
+    margin-bottom: -360px !important;
+    pointer-events: auto;
+  }
+
+  .nxDashboard + * > * {
+    transform: translateX(calc(50% + 7px));
+    width: calc(50% - 7px) !important;
+  }
+}
+
+/* Mobile: back to one clean column */
+@media (max-width: 900px) {
+  .nxDashboard {
+    width: min(100% - 20px, 620px) !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .nxDashboard > .nxCard:has(.nxChapters) {
+    grid-column: auto !important;
+  }
+
+  .nxDashboard + *,
+  .nxDashboard + * > * {
+    transform: none !important;
+    width: min(100% - 20px, 620px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .section:has(.heroCard),
+  .section:has(.featureCard) {
+    display: block !important;
+    width: min(100% - 20px, 620px) !important;
+    margin-top: 0 !important;
+  }
+
+  .section:has(.heroCard) > .heroCard,
+  .section:has(.featureCard) > .featureCard,
+  .section:has(.daysGrid) > .daysGrid {
+    grid-column: auto !important;
+    width: 100% !important;
+  }
+}

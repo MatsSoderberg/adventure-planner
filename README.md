@@ -1,11 +1,10 @@
-# Northbound X v21 – Clean Surgical Fix
+# Northbound X v23 – Route + Norway Grid
 
-Fixar exakt de återstående problemen:
-- tar bort Crew-kortet helt från React-koden
-- tar bort extra kodade CTA-knappar som låg dubbelt ovanpå hero-bilden
-- beskär hero-bilden hårdare upptill så sista ansiktena försvinner
-- tar bort alla kvarvarande avatar-/crew-sektioner
-- behåller snygga mockup-hero med bilar och logga
+Fix:
+- Route Chapters och Norway 2026 placeras sida vid sida på desktop
+- linjerar bättre i överkant
+- tajtare bredd och spacing
+- mobil går tillbaka till en kolumn
 
 Netlify:
 - Build command: `npm run build`

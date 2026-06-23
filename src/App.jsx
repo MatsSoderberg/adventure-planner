@@ -55,7 +55,6 @@ export default function App() {
     <main>
       <Hero adventureScore={adventureScore} />
       <NorthboundX />
-      <LiveDashboard />
       <CinematicIntro adventureScore={adventureScore} />
       <JourneySummary adventureScore={adventureScore} />
       <Dashboard adventureScore={adventureScore} />

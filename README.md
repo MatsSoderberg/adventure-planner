@@ -1,14 +1,11 @@
-# Northbound X v19 – Cropped Clean Hero
+# Northbound X v21 – Clean Surgical Fix
 
-Kontrollerad fix baserad på den mockup-version som fungerade bäst.
-
-Fixar:
-- går tillbaka från v20
-- beskär bort hela övre AI-toppen med ansikten
-- tar bort avatarer/personbilder och crew-block
-- behåller bilarna och loggan från snygga mockupen
-- håller CTA klickbar
-- flyttar paneler så de inte täcker bilarna lika mycket
+Fixar exakt de återstående problemen:
+- tar bort Crew-kortet helt från React-koden
+- tar bort extra kodade CTA-knappar som låg dubbelt ovanpå hero-bilden
+- beskär hero-bilden hårdare upptill så sista ansiktena försvinner
+- tar bort alla kvarvarande avatar-/crew-sektioner
+- behåller snygga mockup-hero med bilar och logga
 
 Netlify:
 - Build command: `npm run build`

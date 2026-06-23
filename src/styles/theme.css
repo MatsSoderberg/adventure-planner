@@ -4840,3 +4840,122 @@ main > .hero,
     bottom: 18px !important;
   }
 }
+
+
+/* v21 surgical fix: no crew card, no duplicate CTA, harder top crop */
+.nxCleanActions,
+.nxCrew,
+.nxCrewGrid,
+.xTeamList,
+.teamAvatarStrip,
+.teamEkeroSection,
+.overviewTeamCard,
+.liveDashboardSection,
+.realCarsSection,
+.teamPanel,
+.teamMember,
+.missionCrew,
+.carCrew {
+  display: none !important;
+}
+
+/* Hide any empty crew card if it survived in markup */
+.nxCard:has(.nxCrewGrid),
+.nxCard:has(.xTeamList),
+.nxCard:has(.teamAvatarStrip) {
+  display: none !important;
+}
+
+/* Harder crop of the baked hero top strip with remaining faces */
+.nxHeroClean,
+.nxHeroMockup {
+  min-height: 100svh !important;
+  overflow: hidden !important;
+  background: #03070b !important;
+}
+
+.nxHeroArtClean,
+.nxHeroArt {
+  top: -132px !important;
+  height: calc(100% + 132px) !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  transform: none !important;
+}
+
+/* No artificial cover pill */
+.nxHeroClean::before,
+.nxHeroMockup::before,
+.nxCleanLabel {
+  display: none !important;
+}
+
+/* Since CTA is removed, let baked buttons breathe */
+.nxHeroClean::after,
+.nxHeroMockup::after {
+  background:
+    linear-gradient(to top, rgba(3,7,11,.82) 0%, transparent 24%),
+    linear-gradient(90deg, rgba(3,7,11,.10), transparent 48%, rgba(3,7,11,.04)) !important;
+}
+
+/* Move metrics down visually and avoid double-feel */
+.nxCleanMetrics {
+  bottom: 14px !important;
+  background: rgba(3,7,11,.78) !important;
+}
+
+/* Route chapter cleanup if old CSS causes text overlap */
+.nxChapters div,
+.xStageList div {
+  min-height: auto !important;
+}
+
+.nxChapters strong,
+.nxChapters small,
+.xStageList span,
+.xStageList small {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: initial !important;
+  line-height: 1.25 !important;
+}
+
+@media (max-width: 900px) {
+  .nxHeroClean,
+  .nxHeroMockup {
+    min-height: 105svh !important;
+  }
+
+  .nxHeroArtClean,
+  .nxHeroArt {
+    top: -142px !important;
+    height: calc(100% + 142px) !important;
+    object-position: center top !important;
+  }
+
+  .nxCleanMetrics {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 18px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .nxHeroClean,
+  .nxHeroMockup {
+    min-height: 108svh !important;
+  }
+
+  .nxHeroArtClean,
+  .nxHeroArt {
+    top: -150px !important;
+    height: calc(100% + 150px) !important;
+    object-position: 50% top !important;
+  }
+
+  .nxCleanMetrics {
+    bottom: 18px !important;
+  }
+}

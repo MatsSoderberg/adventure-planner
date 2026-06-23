@@ -4551,3 +4551,119 @@ main > .hero,
     bottom: 168px !important;
   }
 }
+
+
+/* v15 Mobile hero composition fix */
+@media (max-width: 900px) {
+  .nxHeroClean {
+    min-height: 104svh !important;
+  }
+
+  .nxHeroArtClean {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: 50% center !important;
+    transform: scale(1.06);
+    transform-origin: center center;
+  }
+
+  .nxCleanActions {
+    bottom: 185px !important;
+    left: 14px !important;
+    right: 14px !important;
+    z-index: 22 !important;
+  }
+
+  .nxCleanMetrics {
+    bottom: 18px !important;
+    left: 14px !important;
+    right: 14px !important;
+    z-index: 21 !important;
+    background: rgba(3,7,11,.78) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .nxHeroClean {
+    min-height: 108svh !important;
+  }
+
+  .nxHeroArtClean {
+    object-position: 50% 46% !important;
+    transform: scale(1.12);
+  }
+
+  .nxHeroClean::after {
+    background:
+      linear-gradient(to top, rgba(3,7,11,.94) 0%, transparent 22%),
+      linear-gradient(90deg, rgba(3,7,11,.08), transparent 46%, rgba(3,7,11,.04)) !important;
+  }
+
+  .nxCleanActions {
+    bottom: 220px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px !important;
+  }
+
+  .nxCleanActions button,
+  .nxCleanActions a,
+  .nxCleanActions .nxPrimaryCta,
+  .nxCleanActions .nxSecondaryCta {
+    min-height: 58px !important;
+    font-size: 1.05rem !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+  }
+
+  .nxCleanMetrics {
+    bottom: 26px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    border-radius: 26px !important;
+    padding: 16px !important;
+  }
+
+  .nxCleanMetrics div {
+    padding: 13px 16px !important;
+  }
+
+  .nxCleanMetrics strong {
+    font-size: 1.24rem !important;
+  }
+
+  .nxCleanMetrics span {
+    font-size: .82rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .nxHeroClean {
+    min-height: 110svh !important;
+  }
+
+  .nxHeroArtClean {
+    object-position: 51% 44% !important;
+    transform: scale(1.18);
+  }
+
+  .nxCleanActions {
+    bottom: 245px !important;
+  }
+
+  .nxCleanMetrics {
+    bottom: 28px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .nxHeroArtClean {
+    object-position: 51% 43% !important;
+    transform: scale(1.22);
+  }
+
+  .nxCleanActions {
+    bottom: 255px !important;
+  }
+}

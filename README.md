@@ -1,10 +1,10 @@
-# Northbound X v14 – Clean Topbar + Clickable CTA
+# Northbound X v15 – Mobile Hero Fix
 
-Fixes:
-- Removes the duplicate coded topbar/ramp over the hero mockup
-- Keeps the hero art clean
-- Makes the green Starta expedition button a real clickable link
-- Keeps the secondary Visa karta link clickable
+Fixar mobilvyn:
+- bättre beskärning av hero-bilden
+- logga och bilar hamnar mer centrerat
+- CTA-knapparna hamnar bättre
+- statistikpanelen flyttas ner och täcker inte bilarna lika mycket
 
 Netlify:
 - Build command: `npm run build`

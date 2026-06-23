@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-button-hotspot-position",
-  "version": "29.0.0",
+  "name": "northbound-x-mobile-hero-contain",
+  "version": "30.0.0",
   "private": true,
   "type": "module",
   "scripts": {

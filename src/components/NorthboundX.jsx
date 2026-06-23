@@ -20,9 +20,9 @@ export default function NorthboundX() {
     <section className="nx nxCleanMockup">
       <div className="nxHeroClean">
         <img className="nxHeroArtClean" src="/hero/team-ekero-hero-clean.png" alt="Team Ekerö Norway Expedition" />
-        <div className="heroClickZones" aria-label="Hero navigation">
-          <a className="heroClickZone heroStartZone" href="#route" aria-label="Starta expedition"></a>
-          <a className="heroClickZone heroMapZone" href="#route" aria-label="Visa karta"></a>
+        <div className="heroClickZones">
+          <a className="heroClickZone heroStartZone" href="#route" aria-label="Starta expedition">Starta expedition</a>
+          <a className="heroClickZone heroMapZone" href="#route" aria-label="Visa karta">Visa karta</a>
         </div>
 <div className="nxCleanMetrics">
           {metrics.map(([value, label]) => (

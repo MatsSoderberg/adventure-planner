@@ -5313,3 +5313,118 @@ main > .hero,
     height: 6.6%;
   }
 }
+
+
+/* v26 final: one Norway card only + reliable hero button clicks */
+
+/* Hide the duplicate lower Norway 2026 card/section no matter what class it uses */
+.nxDashboard ~ .section:has(h2),
+.nxDashboard ~ section:has(h2),
+section:has(.heroCard),
+section:has(.featureCard),
+section:has(.daysGrid),
+.heroCard,
+.featureCard,
+.norwayCard,
+.roadbookHero,
+.daysHero,
+.tripHero,
+.adventureHero {
+  display: none !important;
+}
+
+/* But keep normal sections that are not the duplicate by not touching main app containers above */
+
+/* Remove small coded hero stats if still present */
+.nxCleanMetrics {
+  display: none !important;
+}
+
+/* Remove old overlay CTA if still present */
+.nxCleanActions,
+.nxPrimaryCta,
+.nxSecondaryCta {
+  display: none !important;
+}
+
+/* Real clickable invisible anchors over the baked-in hero buttons */
+.nxHeroClean,
+.nxHeroMockup {
+  position: relative !important;
+}
+
+.heroClickZones {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 999 !important;
+  pointer-events: none !important;
+}
+
+.heroClickZone {
+  position: absolute !important;
+  display: block !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+  border-radius: 18px !important;
+  background: rgba(255,255,255,0) !important;
+}
+
+/* Desktop click coordinates over baked image buttons */
+.heroStartZone {
+  left: 3.1% !important;
+  bottom: 29.8% !important;
+  width: 17.2% !important;
+  height: 8.3% !important;
+}
+
+.heroMapZone {
+  left: 21.8% !important;
+  bottom: 29.8% !important;
+  width: 13.8% !important;
+  height: 8.3% !important;
+}
+
+/* Ensure hero image/overlays don't steal clicks */
+.nxHeroArtClean,
+.nxHeroArt,
+.nxHeroClean::after,
+.nxHeroMockup::after {
+  pointer-events: none !important;
+}
+
+/* Mobile coordinates */
+@media (max-width: 900px) {
+  .heroStartZone {
+    left: 4.5% !important;
+    bottom: 20.5% !important;
+    width: 44% !important;
+    height: 7.4% !important;
+  }
+
+  .heroMapZone {
+    left: 52% !important;
+    bottom: 20.5% !important;
+    width: 43% !important;
+    height: 7.4% !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroStartZone {
+    left: 4% !important;
+    bottom: 21% !important;
+    width: 45% !important;
+    height: 7% !important;
+  }
+
+  .heroMapZone {
+    left: 52% !important;
+    bottom: 21% !important;
+    width: 44% !important;
+    height: 7% !important;
+  }
+}

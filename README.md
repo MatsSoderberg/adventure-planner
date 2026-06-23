@@ -1,10 +1,10 @@
-# Northbound X v25 – Clickable Hero + Clean Stats
+# Northbound X v26 – Buttons + Duplicate Norway Fix
 
 Fixar:
-- tar bort den lilla kodade statistikpanelen
-- behåller bara den större statistikbannern i hero-bilden
-- gör Starta expedition och Visa karta klickbara via osynliga klickytor
-- inga dubbla knappar
+- tar bort dubbla nedre Norway 2026-blocket
+- behåller bara Norway 2026-kortet bredvid Route Chapters
+- gör hero-knapparna klickbara med riktiga anchor-zoner
+- tar bort lilla dubbla statistikpanelen
 
 Netlify:
 - Build command: `npm run build`

@@ -5624,3 +5624,19 @@ section.cinematic {
     height: 8.6% !important;
   }
 }
+
+/* v34 Fishing Mode */
+.fishingMode{width:min(1180px,calc(100% - 28px));margin-inline:auto;padding-top:28px!important}
+.fishingHeroCard{position:relative;overflow:hidden;min-height:260px;margin:22px 0 16px;padding:28px;border-radius:30px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(90deg,rgba(4,11,16,.92),rgba(4,11,16,.28)),linear-gradient(to top,rgba(4,11,16,.94),transparent 58%),url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80') center/cover;box-shadow:0 30px 100px rgba(0,0,0,.32);display:flex;align-items:flex-end;justify-content:space-between;gap:22px}
+.fishingHeroCard span,.fishingCardTop span,.fishingMode .kicker{color:#76d58b;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:950}
+.fishingHeroCard h3{font-size:clamp(2.2rem,5vw,4.2rem);line-height:.9;letter-spacing:-.07em;margin:10px 0}
+.fishingHeroCard p{max-width:520px;color:rgba(247,251,255,.72)}
+.fishingHeroCard a{flex:0 0 auto;min-height:52px;padding:0 18px;border-radius:16px;background:linear-gradient(135deg,#76d58b,#45a768);color:#031008;font-weight:950;text-decoration:none;display:inline-flex;align-items:center}
+.fishingGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fishingCard{border-radius:26px;padding:20px;border:1px solid rgba(255,255,255,.1);background:radial-gradient(circle at 12% 0%,rgba(118,213,139,.12),transparent 36%),linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.035));box-shadow:0 22px 70px rgba(0,0,0,.24);backdrop-filter:blur(18px)}
+.fishingCardTop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.fishingCardTop strong{color:#ffd17a;letter-spacing:.06em;font-size:.9rem}
+.fishingCard h3{font-size:clamp(1.45rem,3vw,2.2rem);letter-spacing:-.04em;margin-bottom:4px}.fishingLocation{color:rgba(247,251,255,.62);font-weight:800}
+.fishTags,.fishingTags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.fishTags small,.fishingTags em{font-style:normal;padding:7px 10px;border-radius:999px;background:rgba(118,213,139,.12);border:1px solid rgba(118,213,139,.22);color:rgba(247,251,255,.88);font-size:.8rem;font-weight:850}
+.fishingInfo{display:grid;gap:8px;margin-top:14px}.fishingInfo div{padding:11px 12px;border-radius:16px;background:rgba(255,255,255,.045)}.fishingInfo b,.fishingInfo span{display:block}.fishingInfo b{font-size:.82rem;color:rgba(247,251,255,.9)}.fishingInfo span{margin-top:2px;color:rgba(247,251,255,.62);font-size:.88rem}
+.fishingActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.fishingActions a{min-height:46px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:950;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#f7fbff}.fishingActions a:first-child{background:linear-gradient(135deg,#76d58b,#45a768);color:#031008;border:0}
+@media(max-width:820px){.fishingMode{width:min(100% - 20px,620px);padding-top:20px!important}.fishingHeroCard{min-height:300px;padding:22px;border-radius:24px;display:block}.fishingHeroCard a{margin-top:18px;width:100%;justify-content:center}.fishingGrid{grid-template-columns:1fr;gap:12px}.fishingCard{border-radius:22px;padding:17px}.fishingActions{grid-template-columns:1fr}}

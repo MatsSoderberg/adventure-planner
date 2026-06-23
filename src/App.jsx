@@ -24,6 +24,7 @@ import PhotoMode from './components/PhotoMode'
 import ElevationProfile from './components/ElevationProfile'
 import StoryMode from './components/StoryMode'
 import JourneySummary from './components/JourneySummary'
+import FishingMode from './components/FishingMode'
 
 export default function App() {
   const [selectedId, setSelectedId] = useState('geiranger')
@@ -82,6 +83,8 @@ export default function App() {
           status={selectedStatus}
         />
       </section>
+
+      <FishingMode />
 
       <PremiumMapGuide
         selectedPoi={selectedPoi}

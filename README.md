@@ -1,11 +1,11 @@
-# Northbound X v33 – Mobile Full Hero
+# Northbound X v34 – Fishing Mode
 
-Säker mobilfix:
-- desktop lämnas orörd
-- mobil visar hela hero-bilden från toppen
-- ingen svart yta ovanför bilden
-- båda bilarna, loggan, knapparna och statistikbannern syns
-- ingen separat mobilbild och ingen React-ändring
+Lägger till Fishing Mode:
+- fiskestopp längs rutten
+- självfiske/guide/båtuthyrning
+- arter, fiskekort och regler
+- länkar till karta och info/bokning
+- mobilanpassad sektion
 
 Netlify:
 - Build command: `npm run build`

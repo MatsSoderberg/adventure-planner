@@ -1,10 +1,7 @@
-# Northbound X v28 – Invisible Button Overlay
+# Northbound X v29 – Button Hotspot Position
 
 Fix:
-- synliga extra React-knappar är borttagna
-- bara knapparna i hero-bilden syns
-- osynliga klickytor ligger ovanpå bildens knappar
-- båda länkarna går till #route
+- flyttar ner osynliga klickytor så de ligger över knapparna i hero-bilden
 
 Netlify:
 - Build command: `npm run build`

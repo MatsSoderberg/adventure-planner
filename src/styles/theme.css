@@ -5423,3 +5423,53 @@ section.cinematic {
     height: 7.7% !important;
   }
 }
+
+
+/* v29: move invisible hotspots DOWN to match baked hero buttons */
+@media (min-width: 901px) {
+  .heroStartHotspot {
+    left: 0.3% !important;
+    bottom: 24.2% !important;
+    width: 18.8% !important;
+    height: 8.8% !important;
+  }
+
+  .heroMapHotspot {
+    left: 20.6% !important;
+    bottom: 24.2% !important;
+    width: 13.6% !important;
+    height: 8.8% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroStartHotspot {
+    left: 0.8% !important;
+    bottom: 27.8% !important;
+    width: 48.8% !important;
+    height: 7.7% !important;
+  }
+
+  .heroMapHotspot {
+    left: 52.2% !important;
+    bottom: 27.8% !important;
+    width: 43.8% !important;
+    height: 7.7% !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroStartHotspot {
+    left: 0.8% !important;
+    bottom: 27.5% !important;
+    width: 49% !important;
+    height: 7.7% !important;
+  }
+
+  .heroMapHotspot {
+    left: 52% !important;
+    bottom: 27.5% !important;
+    width: 44% !important;
+    height: 7.7% !important;
+  }
+}

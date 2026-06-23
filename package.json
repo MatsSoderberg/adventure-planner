@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-safe-mobile-fix",
-  "version": "32.0.0",
+  "name": "northbound-x-mobile-full-hero",
+  "version": "33.0.0",
   "private": true,
   "type": "module",
   "scripts": {

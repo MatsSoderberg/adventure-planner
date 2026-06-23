@@ -1,13 +1,11 @@
-# Northbound X v32 – Safe Mobile Fix
+# Northbound X v33 – Mobile Full Hero
 
-Säker rollback från v29 som fungerade.
-
-Fixar:
-- tar bort ändringen med separat mobilbild från v31
-- lägger in korrekt Netlify SPA fallback
-- tar bort CinematicIntro/undre Norway 2026
-- mobilfix görs bara med crop-position, inte ny bild
-- desktop lämnas i praktiken oförändrad
+Säker mobilfix:
+- desktop lämnas orörd
+- mobil visar hela hero-bilden från toppen
+- ingen svart yta ovanför bilden
+- båda bilarna, loggan, knapparna och statistikbannern syns
+- ingen separat mobilbild och ingen React-ändring
 
 Netlify:
 - Build command: `npm run build`

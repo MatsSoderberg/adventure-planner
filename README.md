@@ -1,13 +1,11 @@
-# Northbound X v30 – Mobile Hero Contain
-
-CSS-only fix ovanpå v29.
+# Northbound X v31 – Mobile Hero Image
 
 Fix:
-- mobil visar mer av hela hero-bilden
-- `object-fit: contain` på mobil
 - desktop lämnas orörd
-- React/JSX/routing ändras inte
-- hotspots justeras för mobil
+- mobil får separat stående hero-bild
+- ingen svart yta ovanför bilden
+- bilar, logga, knappar och stats syns i mobilvyn
+- klickytor justerade för mobilbilden
 
 Netlify:
 - Build command: `npm run build`

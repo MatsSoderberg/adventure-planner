@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-mobile-hero-contain",
-  "version": "30.0.0",
+  "name": "northbound-x-mobile-hero-image",
+  "version": "31.0.0",
   "private": true,
   "type": "module",
   "scripts": {

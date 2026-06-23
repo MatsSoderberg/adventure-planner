@@ -20,9 +20,9 @@ export default function NorthboundX() {
     <section className="nx nxCleanMockup">
       <div className="nxHeroClean">
         <img className="nxHeroArtClean" src="/hero/team-ekero-hero-clean.png" alt="Team Ekerö Norway Expedition" />
-        <div className="heroRealActions">
-          <a className="heroRealPrimary" href="#route">▶ Starta expedition</a>
-          <a className="heroRealSecondary" href="#route">Visa karta</a>
+        <div className="heroButtonOverlay" aria-label="Hero navigation">
+          <a className="heroButtonHotspot heroStartHotspot" href="#route" aria-label="Starta expedition"></a>
+          <a className="heroButtonHotspot heroMapHotspot" href="#route" aria-label="Visa karta"></a>
         </div>
 </div>
 

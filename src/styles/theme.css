@@ -5337,3 +5337,89 @@ section.cinematic {
     font-size: .95rem;
   }
 }
+
+
+/* v28: invisible clickable overlay exactly on baked hero buttons */
+.heroRealActions,
+.heroRealActions a,
+.heroRealPrimary,
+.heroRealSecondary {
+  display: none !important;
+}
+
+.heroButtonOverlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 10000 !important;
+  pointer-events: none !important;
+}
+
+.heroButtonHotspot {
+  position: absolute !important;
+  display: block !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  background: rgba(255,255,255,0) !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+  border-radius: 18px !important;
+  opacity: 1 !important;
+}
+
+/* Desktop/tablet placement based on current cropped hero image */
+.heroStartHotspot {
+  left: 0.3% !important;
+  bottom: 30.8% !important;
+  width: 18.8% !important;
+  height: 8.8% !important;
+}
+
+.heroMapHotspot {
+  left: 20.6% !important;
+  bottom: 30.8% !important;
+  width: 13.6% !important;
+  height: 8.8% !important;
+}
+
+/* Make image and overlays behind not steal the click */
+.nxHeroArtClean,
+.nxHeroArt,
+.nxHeroClean::after,
+.nxHeroMockup::after {
+  pointer-events: none !important;
+}
+
+/* Mobile placement */
+@media (max-width: 900px) {
+  .heroStartHotspot {
+    left: 0.8% !important;
+    bottom: 34.5% !important;
+    width: 48.8% !important;
+    height: 7.7% !important;
+  }
+
+  .heroMapHotspot {
+    left: 52.2% !important;
+    bottom: 34.5% !important;
+    width: 43.8% !important;
+    height: 7.7% !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroStartHotspot {
+    left: 0.8% !important;
+    bottom: 34.5% !important;
+    width: 49% !important;
+    height: 7.7% !important;
+  }
+
+  .heroMapHotspot {
+    left: 52% !important;
+    bottom: 34.5% !important;
+    width: 44% !important;
+    height: 7.7% !important;
+  }
+}

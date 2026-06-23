@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-route-norway-real-grid",
-  "version": "24.0.0",
+  "name": "northbound-x-clickable-hero-clean-stats",
+  "version": "25.0.0",
   "private": true,
   "type": "module",
   "scripts": {

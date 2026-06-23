@@ -5226,3 +5226,90 @@ main > .hero,
 .nxChapters small{display:block!important;font-size:.78rem!important;line-height:1.25!important;white-space:normal!important}
 @media(max-width:900px){.nxDashboard{width:min(100% - 20px,620px)!important;grid-template-columns:1fr!important;gap:12px!important;margin-top:14px!important}.nxDashboard>.nxCard:has(.nxChapters),.v24NorwayCard{grid-column:auto!important}.v24NorwayCard{min-height:330px!important}.v24NorwayCard h2{font-size:clamp(2.8rem,13vw,4.2rem)!important}}
 @media(max-width:520px){.nxDashboard{width:calc(100% - 16px)!important;gap:10px!important}.v24NorwayCard{min-height:300px!important;padding:18px!important}.v24NorwayStats{gap:8px}.v24NorwayStats div{padding:10px}.v24NorwayStats strong{font-size:1rem}.v24NorwayStats small{font-size:.68rem}}
+
+
+/* v25: clickable baked hero buttons + keep only large baked stats banner */
+.nxCleanMetrics {
+  display: none !important;
+}
+
+/* Invisible clickable zones placed over the buttons that are part of the hero image */
+.heroClickZones {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.heroClickZone {
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  cursor: pointer;
+  border-radius: 18px;
+  text-decoration: none;
+  background: transparent;
+}
+
+/* Desktop coordinates based on current hero image composition */
+.heroStartZone {
+  left: clamp(26px, 3.4vw, 64px);
+  bottom: clamp(118px, 14.8vh, 170px);
+  width: clamp(205px, 17vw, 280px);
+  height: clamp(58px, 5.2vw, 74px);
+}
+
+.heroMapZone {
+  left: clamp(250px, 20vw, 355px);
+  bottom: clamp(118px, 14.8vh, 170px);
+  width: clamp(150px, 12.5vw, 210px);
+  height: clamp(58px, 5.2vw, 74px);
+}
+
+/* Make sure no old overlay buttons remain visible */
+.nxCleanActions,
+.nxPrimaryCta,
+.nxSecondaryCta {
+  display: none !important;
+}
+
+/* Because coded stats are gone, reduce bottom overlay darkness slightly */
+.nxHeroClean::after,
+.nxHeroMockup::after {
+  background:
+    linear-gradient(to top, rgba(3,7,11,.58) 0%, transparent 22%),
+    linear-gradient(90deg, rgba(3,7,11,.10), transparent 48%, rgba(3,7,11,.04)) !important;
+}
+
+/* Mobile clickable zones */
+@media (max-width: 900px) {
+  .heroStartZone {
+    left: 5%;
+    bottom: 19.8%;
+    width: 43%;
+    height: 6.8%;
+  }
+
+  .heroMapZone {
+    left: 52%;
+    bottom: 19.8%;
+    width: 41%;
+    height: 6.8%;
+  }
+}
+
+@media (max-width: 520px) {
+  .heroStartZone {
+    left: 4%;
+    bottom: 20.8%;
+    width: 45%;
+    height: 6.6%;
+  }
+
+  .heroMapZone {
+    left: 52%;
+    bottom: 20.8%;
+    width: 44%;
+    height: 6.6%;
+  }
+}

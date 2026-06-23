@@ -29,7 +29,7 @@ export default function LiveDashboard() {
           </div>
           <div className="missionCrew">
             {teamMembers.slice(0, 5).map(member => (
-              <img key={member.id} src={member.avatar} alt={member.realName || member.name} />
+              <img key={member.id} src={member.avatar} alt={member.name} />
             ))}
           </div>
         </div>

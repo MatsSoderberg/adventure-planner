@@ -15,7 +15,7 @@ export default function TeamEkeroPanel() {
         <div className="teamPanel">
           {teamMembers.map((member) => (
             <div className="teamMember" key={member.id}>
-              <img src={member.avatar} alt={member.realName || member.name} />
+              <img src={member.avatar} alt={member.name} />
               <div>
                 <strong>{member.name}</strong>
                 <span>{member.role}</span>

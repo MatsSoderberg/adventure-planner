@@ -1,6 +1,6 @@
 {
-  "name": "northbound-x-clean-mockup-hero",
-  "version": "13.0.0",
+  "name": "northbound-x-clean-topbar-clickable-cta",
+  "version": "14.0.0",
   "private": true,
   "type": "module",
   "scripts": {

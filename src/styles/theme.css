@@ -4506,3 +4506,48 @@ main > .hero,
     font-size: .74rem;
   }
 }
+
+
+/* v14 fixes: remove duplicate top ramp and make CTA actually clickable */
+.nxFloatingNav.clean {
+  display: none !important;
+}
+
+.nxCleanActions {
+  z-index: 20 !important;
+  pointer-events: auto !important;
+}
+
+.nxCleanActions a,
+.nxPrimaryCta,
+.nxSecondaryCta {
+  text-decoration: none !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.nxCleanActions .nxPrimaryCta {
+  background: linear-gradient(135deg, #75d189, #45a768) !important;
+  color: #031008 !important;
+  border: 0 !important;
+  box-shadow: 0 18px 46px rgba(70, 180, 105, .26) !important;
+}
+
+.nxCleanActions .nxSecondaryCta {
+  background: rgba(3,7,11,.56) !important;
+  color: #f4fbf7 !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+}
+
+/* Let the hero image's built-in topbar show cleanly */
+.nxHeroClean::after {
+  background:
+    linear-gradient(to top, rgba(3,7,11,.82) 0%, transparent 27%),
+    linear-gradient(90deg, rgba(3,7,11,.10), transparent 45%, rgba(3,7,11,.04)) !important;
+}
+
+@media (max-width: 520px) {
+  .nxCleanActions {
+    bottom: 168px !important;
+  }
+}

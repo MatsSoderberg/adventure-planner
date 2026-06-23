@@ -21,26 +21,9 @@ export default function NorthboundX() {
       <div className="nxHeroClean">
         <img className="nxHeroArtClean" src="/hero/team-ekero-hero-clean.png" alt="Team Ekerö Norway Expedition" />
 
-        <header className="nxFloatingNav clean">
-          <div className="nxLogo">
-            <div className="nxMark"><span>N</span></div>
-            <div>
-              <strong>Northbound X</strong>
-              <small>Team Ekerö · Norway 2026</small>
-            </div>
-          </div>
-
-          <div className="nxCrew">
-            {teamMembers.map(member => (
-              <img key={member.id} src={member.avatar} alt={member.name} />
-            ))}
-            <b>{teamMembers.length}</b>
-          </div>
-        </header>
-
         <div className="nxCleanActions">
-          <button>▶ Starta expedition</button>
-          <a href="#route">Visa karta</a>
+          <a className="nxPrimaryCta" href="#route">▶ Starta expedition</a>
+          <a className="nxSecondaryCta" href="#route">Visa karta</a>
         </div>
 
         <div className="nxCleanMetrics">

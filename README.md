@@ -1,10 +1,14 @@
-# Northbound X v18 – Clean No Avatars
+# Northbound X v20 – Premium Hero
 
-Rensad version:
-- tar bort personliga avatarer och crew-block
-- döljer AI-ansiktsraden i hero-bilden
-- behåller ren Team Ekerö-känsla
-- bättre professionell layout utan misslyckade ansikts-crops
+Ny hero helt utan AI-bild och utan personavatarer.
+
+## Nytt
+- egen kodad premium-hero
+- fjordbakgrund utan AI-artefakter
+- stiliserad mörkblå Multivan och carbonsvart BMW X3
+- ren Team Ekerö-badge
+- glaspanel för statistik
+- mobil först
 
 Netlify:
 - Build command: `npm run build`
